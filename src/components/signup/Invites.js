@@ -16,11 +16,23 @@ class Invites extends Component {
   handleClick (event) {
     event.preventDefault()
     const adress = this.state.invites.trim()
-    this.props.onDataSubmit({ invites: adress })
+    // this.props.onDataSubmit({ invites: adress })
     this.setState({ invites: '' })
   }
 
+
   render () {
+    const invites = this.props.invites.map((value, index) => {
+      return (
+        <input
+          key={index}
+          className='form-fields__input'
+          type='email'
+          placeholder='name@domain.com'
+          onChange={this.handleAdressChange}/>
+      )
+    })
+
     return (
       <div className='form'>
         <div className='form-fields'>
@@ -31,11 +43,10 @@ class Invites extends Component {
           <label className='form-fields__label'>
             Email Adress
           </label>
-          <input
-            className='form-fields__input'
-            type='email'
-            placeholder='name@domain.com'
-            onChange={this.handleAdressChange} />
+          {invites}
+          <div className='form_fields__add-adress'>
+          + Add another Email
+          </div>
         </div>
         <div className='main-footer'>
         <div className='main-footer__button-wrapper'>
