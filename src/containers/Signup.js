@@ -5,6 +5,7 @@ import TeamForm from '../components/signup/TeamForm'
 import NameForm from '../components/signup/NameForm'
 import Overview from '../components/signup/Overview'
 import PasswordForm from '../components/signup/PasswordForm'
+import Invites from '../components/signup/Invites'
 
 import './Singup.css'
 
@@ -14,7 +15,7 @@ class Signup extends Component {
 
     this.state = {
       step: 0,
-      data: { teamname: '', firstname: '', lastname: '', password: '' }
+      data: { teamname: '', firstname: '', lastname: '', password: '', invites: '' }
     }
 
     this.handleDataSubmit = this.handleDataSubmit.bind(this)
@@ -25,7 +26,8 @@ class Signup extends Component {
       { component: () => <TeamForm onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <NameForm onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <Overview data={this.state.data} onDataSubmit={this.handleDataSubmit} /> },
-      { component: () => <PasswordForm /> }
+      { component: () => <PasswordForm onDataSubmit={this.handleDataSubmit} /> },
+      { component: () => <Invites />}
     ]
 
     return forms[step].component()

@@ -4,11 +4,20 @@ class PasswordForm extends Component {
   constructor (props) {
     super(props)
     this.state = { password: '' }
+
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handlePasswordChange (event) {
     this.setState({ password: event.target.value })
+  }
+
+  handleClick (event) {
+    event.preventDefault()
+    const password = this.state.password.trim()
+    this.props.onDataSubmit({ password: password })
+    this.setState({ password: '' })
   }
 
   render () {

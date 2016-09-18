@@ -68,7 +68,7 @@
 
 .form-fields__input {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 300;
   color: #373D3F;
   line-height: 18px;
   /*display: block;*/
@@ -117,6 +117,12 @@
   text-align: center;
 }
 
+.main-footer__button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 18%;
+}
+
 .main-footer__button {
   font-size: 1em;
   background: #3DD281;
@@ -129,6 +135,23 @@
   outline: 0;
   transition: 200ms ease;
   cursor: pointer;
+}
+
+.main-footer__skip-button {
+  font-size: 1em;
+  background: #ffffff;
+  border-radius: 0.25rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #DBDFE0;
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 48px 16px;
+  text-decoration: none;
+  outline: 0;
+  transition: 200ms ease;
+  cursor: pointer;
+  color: #DBDFE0;
 }
 
 .main-footer__button:hover {

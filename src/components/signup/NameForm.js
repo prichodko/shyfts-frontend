@@ -34,7 +34,7 @@ class NameForm extends Component {
     return (
       <div className='form'>
         <div className='form-fields'>
-          <h1 className='form-fields__heading'>What's your name?</h1>
+          <h1 className='form-fields__heading'>What’s your name?</h1>
           <p className='form-fields__text'>
             Your name will be used for communication between you and your teammates.
           </p>
@@ -55,7 +55,7 @@ class NameForm extends Component {
           </div>
         </div>
         <div className='main-footer'>
-          <button disabled={!this.state.firstname && !this.state.lastname} className='main-footer__button' onClick={this.handleClick}>
+          <button disabled={!this.state.firstname || !this.state.lastname} className='main-footer__button' onClick={this.handleClick}>
             Next
           </button>
         </div>
