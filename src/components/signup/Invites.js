@@ -15,11 +15,8 @@ class Invites extends Component {
 
   handleClick (event) {
     event.preventDefault()
-    const adress = this.state.invites.trim()
-    // this.props.onDataSubmit({ invites: adress })
     this.setState({ invites: '' })
   }
-
 
   render () {
     const invites = this.props.invites.map((value, index) => {
@@ -29,7 +26,7 @@ class Invites extends Component {
           className='form-fields__input'
           type='email'
           placeholder='name@domain.com'
-          onChange={this.handleAdressChange}/>
+          onChange={this.handleAdressChange} />
       )
     })
 
@@ -45,18 +42,18 @@ class Invites extends Component {
           </label>
           {invites}
           <div className='form_fields__add-adress'>
-          + Add another Email
+            + Add another Email
           </div>
         </div>
         <div className='main-footer'>
-        <div className='main-footer__button-wrapper'>
-          <button className='main-footer__skip-button' onClick={this.handleSkip}>
-            Skip for now
-          </button>
-          <button disabled={!this.state.invites} className='main-footer__button' onClick={this.handleClick}>
-            Next
-          </button>
-        </div>
+          <div className='main-footer__button-wrapper'>
+            <button className='main-footer__skip-button' onClick={this.handleSkip}>
+              Skip for now
+            </button>
+            <button disabled={!this.state.invites} className='main-footer__button' onClick={this.handleClick}>
+              Next
+            </button>
+          </div>
         </div>
       </div>
     )
