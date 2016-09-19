@@ -27,7 +27,7 @@ class Signup extends Component {
       { component: () => <NameForm onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <Overview data={this.state.data} onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <PasswordForm onDataSubmit={this.handleDataSubmit} /> },
-      { component: () => <Invites invites={this.state.data.invites}/>}
+      { component: () => <Invites invites={this.state.data.invites} /> }
     ]
 
     return forms[step].component()
