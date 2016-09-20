@@ -1,7 +1,6 @@
 .app-container {
   height: 100vh;
   display: flex;
-  overflow: auto; 
 }
 
 .pane-wrapper {
@@ -13,7 +12,6 @@
   font-weight: 600;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 /*.pane-wrapper > * {
@@ -35,6 +33,7 @@
   border-top: 0.1px solid dimgray;
   border-bottom: 0.1px solid dimgray;
   min-height: min-content;
+  cursor: pointer;
 }
 
 .group-add__text {
@@ -44,6 +43,7 @@
 .group-list {
   flex: 1;
   margin: 0;
+  overflow: scroll;
 }
 
 .profile {
@@ -88,34 +88,64 @@
   display: flex;
   flex-direction: column;
   font-size: 1.2rem;
+  height: 100vh;
 }
 
-.canvas-wrapper > * {
+/*.canvas-wrapper > *, .navbar > * {
   border: 1px solid black;
-}
+}*/
 
 .navbar {
   min-height: 4rem;
   display: flex;
-  align-items: center;
+  /*align-items: center;*/
   padding-left: 1.5em;
 }
 
 .navbar__teamname {
   flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: stretch;
+  list-style: none;
+  padding: 0;
+  margin: 0
 }
 
 .navbar__item {
+  min-width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.navbar__item:hover, .navbar__item--active {
+  border-bottom: 3px solid #3DD281;
+  font-weight: 600;
+}
+
+.navbar__link {
   text-decoration: none;
-  height: 100%;
-  border-bottom: 2px solid greenyellow;
-  display: block;
+  color: #373D3F;
 }
 
 .navbar__add-button {
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4rem;
+  min-height: 4rem;
   background: #3DD281;
-  /*padding-left: 50%;*/
+  cursor: pointer;
+}
+
+.navbar__add-button:hover {
+  opacity: 0.8;
 }
 
 .datebar {
