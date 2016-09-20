@@ -11,6 +11,9 @@ class Navbar extends Component {
           <div>
             Ordr team Prague
           </div>
+          <span className='navbar__group-bubble'>
+            ALL
+          </span>
         </div>
         <ul className='navbar__list'>
           <li className='navbar__item'>
