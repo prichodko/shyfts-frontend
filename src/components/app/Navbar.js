@@ -7,13 +7,11 @@ class Navbar extends Component {
   render () {
     return (
       <div className='navbar'>
-        <div className='navbar__teamname'>
-          <div>
+        <div className='navbar__info'>
+          <div className='navbar__teamname'>
             Ordr team Prague
           </div>
-          <span className='navbar__group-bubble'>
-            ALL
-          </span>
+          <span className='navbar__group-bubble'>ALL</span>
         </div>
         <ul className='navbar__list'>
           <li className='navbar__item'>

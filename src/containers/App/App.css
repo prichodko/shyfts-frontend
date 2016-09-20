@@ -1,15 +1,17 @@
 .app-container {
-  height: 100vh;
   display: flex;
+  height: 100vh;
+  width: 100vw;
 }
 
 .pane-wrapper {
   background: #34333F;
-  max-width: 300px;
-  min-width: 220px;
-  flex: 1;
   color: #F3F4F5;
+  /*height: 100%;*/
+  min-width: 220px;
+  max-width: 280px;
   font-weight: 600;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -19,21 +21,25 @@
 }*/
 
 .logo {
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  /*padding: 1.5em 1.4em;*/
-  min-height: 4rem;
 }
 
 .group-add {
-  display: flex;
-  padding: 1em 1.4em;
+  height: 4rem;
   color: #A7B0B2;
-  border-top: 0.1px solid dimgray;
-  border-bottom: 0.1px solid dimgray;
-  min-height: min-content;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem 0;
+  border-top: 0.1px solid darkslategray;
+  border-bottom: 0.1px solid darkslategrey;
   cursor: pointer;
+}
+
+.group-add:hover > * {
+  opacity: 0.8;
 }
 
 .group-add__text {
@@ -43,43 +49,54 @@
 .group-list {
   flex: 1;
   margin: 0;
+  padding: 0;
+  list-style-type: none;
   overflow: scroll;
+}
+
+.group-list__item {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem 0;
+}
+
+.group-list__item:hover {
+  cursor: pointer;
+  padding: 0 1.5rem 0;
+  background: #393843;
 }
 
 .profile {
   background: #1C1C23;
+  height: 4rem;
   display: flex;
   align-items: center;
-  padding: 1.5em 1.4em;
+  padding: 0 1rem 0;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .profile__avatar {
   background-color: lightgray;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
-  margin-right: 0.7em; 
+  margin-right: 0.7rem; 
 }
 
 .profile__name {
   flex: 1;
 }
 
-.group-list {
-  list-style-type: none;
-  padding: 0;
-} 
-
-.group-list__item {
-  cursor: pointer;
-  padding: 1em 1.4em;
+.profile__arrow {
+  transform: rotate(180deg);
+  transition: 200ms ease;
 }
 
-.group-list__item:hover {
-  cursor: pointer;
-  padding: 1em 1.4em;
-  background: #393843;
+.profile:hover > .profile__arrow {
+  transition: 200ms ease;
+  transform: rotate(-0deg);
 }
 
 .canvas-wrapper {
@@ -87,8 +104,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  font-size: 1.2rem;
-  height: 100vh;
 }
 
 /*.canvas-wrapper > *, .navbar > * {
@@ -96,16 +111,31 @@
 }*/
 
 .navbar {
-  min-height: 4rem;
+  height: 4rem;
   display: flex;
   /*align-items: center;*/
-  padding-left: 1.5em;
+  padding-left: 1.5rem;
 }
 
-.navbar__teamname {
+.navbar__info {
   flex: 1;
   display: flex;
   align-items: center;
+}
+
+.navbar__teamname {
+  font-size: 1.3rem;
+  margin-right: 2rem;
+}
+
+.navbar__group-bubble {
+  background: #3DD281;
+  font-size: 0.8rem;
+  min-width: 5em;
+  border-radius: 3em;
+  text-align: center;
+  color: white;
+  font-weight: 600;
 }
 
 .navbar__list {
@@ -117,15 +147,15 @@
 }
 
 .navbar__item {
-  min-width: 90px;
+  min-width: 5.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .navbar__item:hover, .navbar__item--active {
-  border-bottom: 3px solid #3DD281;
+  border-bottom: 0.2em solid #3DD281;
   font-weight: 600;
 }
 
@@ -153,6 +183,12 @@
   min-height: 4rem;
   display: flex;
   align-items: center;
+}
+
+.datebar__weeks {
+  color: #3DD281;
+  margin-right: 0.3em;
+  font-weight: 600;
 }
 
 .planner {

@@ -4,7 +4,7 @@ class Datebar extends Component {
   render () {
     return (
       <div className='datebar'>
-        25 - 31 Jul 2016
+        <span className='datebar__weeks'>25 - 31</span>Jul 2016
       </div>
     )
   }

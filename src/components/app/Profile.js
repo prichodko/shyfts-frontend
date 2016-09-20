@@ -10,7 +10,7 @@ class Profile extends Component {
         <div className='profile__name'>
           Jakub Nespor
         </div>
-        <img src={Arrow} alt='' />
+        <img src={Arrow} alt='' className='profile__arrow' />
       </div>
     )
   }
