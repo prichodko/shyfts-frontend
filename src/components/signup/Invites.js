@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 class Invites extends Component {
   constructor (props) {
     super(props)
-    this.state = { invites: ['', '', ''] }
+    this.state = {
+      invites: ['', '', ''],
+      isValid: false
+    }
 
     this.handleAdressChange = this.handleAdressChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -14,13 +17,18 @@ class Invites extends Component {
     var newInvites = this.state.invites.slice(0)
     newInvites[index] = event.target.value
     this.setState({ invites: newInvites })
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.setState({isValid : re.test(newInvites[index]) })
   }
 
   handleClick (event) {
     event.preventDefault()
     const invites = this.state.invites
     this.props.onDataSubmit({ invites: invites })
-    this.setState({ invites: ['', '', ''] })
+    this.setState({
+      invites: ['', '', ''],
+      isValid: false
+    })
   }
 
   handleAddAdress () {
@@ -42,7 +50,7 @@ class Invites extends Component {
     return (
       <div className='form'>
         <div className='form-fields'>
-          <h1 className='form-fields__heading'>Shyfts is better together</h1>
+          <h1 className='form-fields__heading' onClick={() => console.log(this.state.isValid)}>Shyfts is better together</h1>
           <p className='form-fields__text'>
             Invite other people to get most out of Shyfts. Manage their shifts and free time.
           </p>
@@ -58,7 +66,7 @@ class Invites extends Component {
             <button className='main-footer__skip-button'>
               Skip for now
             </button>
-            <button disabled={!this.state.invites} className='main-footer__button' onClick={this.handleClick}>
+            <button disabled={!this.state.isValid} className='main-footer__button' onClick={this.handleClick}>
               Next
             </button>
         </div>

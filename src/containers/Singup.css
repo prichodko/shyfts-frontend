@@ -153,7 +153,7 @@
   color: #fff;
   font-weight: 600;
   width: 30%;
-  padding-top: 14px;
+  padding-top: 13px;
   padding-bottom: 16px;
   text-decoration: none;
   outline: 0;
@@ -186,7 +186,8 @@
 }
 
 .main-footer__skip-button:hover {
-  background: #DBDFE0;
+  background: #3AC77B;
+  border-color: #3AC77B;
   color: white;
   transition: 200ms ease;
 }
