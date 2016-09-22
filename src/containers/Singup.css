@@ -117,15 +117,13 @@
   align-self: flex-end;
 }
 
+.form_fields__add-adress:hover {
+  cursor: pointer;
+}
+
 .main-footer {
   min-height: 15%;
   text-align: center;
-}
-
-.main-footer__button-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 18%;
 }
 
 .main-footer__button {
@@ -135,11 +133,14 @@
   border: none;
   color: #fff;
   font-weight: 600;
-  padding: 14px 80px 16px;
+  width: 30%;
+  padding-top: 14px;
+  padding-bottom: 16px;
   text-decoration: none;
   outline: 0;
   transition: 200ms ease;
   cursor: pointer;
+  margin: 3px;
 }
 
 .main-footer__skip-button {
@@ -151,12 +152,16 @@
   border-color: #DBDFE0;
   color: #fff;
   font-weight: 600;
-  padding: 14px 48px 16px;
+  width: 30%;
+  padding-top: 14px;
+  padding-bottom: 16px;
   text-decoration: none;
   outline: 0;
   transition: 200ms ease;
   cursor: pointer;
   color: #DBDFE0;
+  white-space: nowrap;
+  margin: 3px;
 }
 
 .main-footer__button:hover {
@@ -171,7 +176,9 @@
   border: none;
   color: #fff;
   font-weight: 600;
-  padding: 14px 80px 16px;
+  width: 30%;
+  padding-top: 14px;
+  padding-bottom: 16px;
   text-decoration: none;
   outline: 0;
   transition: 200ms ease;
@@ -198,8 +205,10 @@
     max-width: 100%;
   }
 
-  .main-footer__button-wrapper {
-    flex-direction: column;
-    padding: 0 18%;
+  .main-footer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
   }
 }

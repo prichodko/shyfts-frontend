@@ -15,7 +15,7 @@ class Signup extends Component {
 
     this.state = {
       step: 0,
-      data: { teamname: '', firstname: '', lastname: '', password: '', invites: ['', '', ''] }
+      data: { teamname: '', firstname: '', lastname: '', password: '', invites: [] }
     }
 
     this.handleDataSubmit = this.handleDataSubmit.bind(this)
@@ -27,7 +27,8 @@ class Signup extends Component {
       { component: () => <NameForm onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <Overview data={this.state.data} onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <PasswordForm onDataSubmit={this.handleDataSubmit} /> },
-      { component: () => <Invites invites={this.state.data.invites} /> }
+      { component: () => <Invites onDataSubmit={this.handleDataSubmit}/> },
+      { component: () => <TeamForm onDataSubmit={this.handleDataSubmit} /> }
     ]
 
     return forms[step].component()
