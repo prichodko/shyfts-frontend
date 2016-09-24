@@ -10,7 +10,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      data: { teamname: 'Tony’s Café', firstname: 'Tony', lastname: 'Pérez'}
+      data: { teamname: 'Tony’s Café', firstname: 'Tony', lastname: 'Pérez'},
     }
   }
 
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className='app-container'>
         <Pane data={this.state.data} />
-        <Canvas data={this.state.data}/>
+        <Canvas data={this.state.data}>{this.props.children}</Canvas>
       </div>
     )
   }

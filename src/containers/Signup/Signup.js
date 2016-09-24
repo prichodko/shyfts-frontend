@@ -46,7 +46,7 @@ class Signup extends Component {
   }
 
   render () {
-    console.log(this.state)
+
     return (
       <div className='signup-container'>
         <div className='signup-main'>

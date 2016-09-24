@@ -38,7 +38,6 @@ class Overview extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <div className='form'>
         <div className='form-fields'>

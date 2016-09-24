@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 
 import Navbar from './Navbar'
-import Datebar from './Datebar'
-import Planner from './Planner'
-
 
 class Canvas extends Component {
   render () {
     return (
       <div className='canvas-wrapper'>
         <Navbar data={this.props.data}/>
-        <Datebar />
-        <Planner />
+        {this.props.children}
       </div>
     )
   }
