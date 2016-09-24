@@ -30,7 +30,7 @@ class Navbar extends Component {
           </li>
         </ul>
         <div className='navbar__add-button'>
-          <img src={Plus} />
+          <img src={Plus} role="presentation"/>
         </div>
       </div>
     )

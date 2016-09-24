@@ -50,7 +50,7 @@ class Signup extends Component {
       <div className='signup-container'>
         <div className='signup-main'>
           <div className='main-header'>
-            <img src={Logo} className='main-header__logo' />
+            <img src={Logo} className='main-header__logo' role="presentation"/>
           </div>
           {this.getForm(this.state.step)}
         </div>

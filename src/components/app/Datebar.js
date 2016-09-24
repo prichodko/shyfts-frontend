@@ -36,13 +36,13 @@ class Datebar extends Component {
       <div className='datebar'>
         <div className='date-navigation'>
           <div className='date-navigation__arrow-previous'>
-            <img src={Arrow} className='date-navigation__img'/>
+            <img src={Arrow} className='date-navigation__img'role="presentation"/>
           </div>
           <div className='date-navigation__calendar'>
-            <img src={Calendar} className='date-navigation__img'/>
+            <img src={Calendar} className='date-navigation__img'role="presentation"/>
           </div>
           <div className='date-navigation__arrow-next'>
-            <img src={Arrow} className='date-navigation__img'/>
+            <img src={Arrow} className='date-navigation__img'role="presentation"/>
           </div>
         </div>
           <span className='datebar__weeks'>

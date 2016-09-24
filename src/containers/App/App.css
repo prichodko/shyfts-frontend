@@ -266,3 +266,21 @@
 .planner {
   flex: 1;
 }
+
+.timeline {
+  display: flex;
+  flex-direction: row;
+}
+
+.timeline__day {
+  width: 50px;
+  align-content: center;
+}
+
+.timeline__hourItem {
+  display:inline-block;
+  background-color:#fff;
+  list-style-type:none;
+  text-align: center;
+  width: 30px;
+}

@@ -38,7 +38,6 @@ class Invites extends Component {
 
   handleSkip (event) {
     event.preventDefault()
-    const invites = this.state.invites
     this.props.onDataSubmit({ invites: [] })
     this.setState({
       invites: ['', '', ''],
