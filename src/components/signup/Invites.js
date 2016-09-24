@@ -3,38 +3,69 @@ import React, { Component } from 'react'
 class Invites extends Component {
   constructor (props) {
     super(props)
-    this.state = { invites: '' }
+    this.state = {
+      invites: ['', '', ''],
+      isValid: false
+    }
 
     this.handleAdressChange = this.handleAdressChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleSkip = this.handleSkip.bind(this)
+    this.handleAddAdress = this.handleAddAdress.bind(this)
   }
 
-  handleAdressChange (event) {
-    this.setState({ invites: event.target.value })
+  handleAdressChange (index, event) {
+    var newInvites = this.state.invites.slice(0)
+    newInvites[index] = event.target.value
+    this.setState({ invites: newInvites })
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.setState({isValid : re.test(newInvites[index]) })
   }
 
   handleClick (event) {
     event.preventDefault()
+<<<<<<< HEAD
     this.props.onSubmit()
     this.setState({ invites: '' })
+=======
+    const invites = this.state.invites
+    this.props.onDataSubmit({ invites: invites })
+    this.setState({
+      invites: ['', '', ''],
+      isValid: false
+    })
+  }
+
+  handleAddAdress () {
+    this.setState({invites: this.state.invites.concat([''])})
+  }
+
+  handleSkip (event) {
+    event.preventDefault()
+    this.props.onDataSubmit({ invites: [] })
+    this.setState({
+      invites: ['', '', ''],
+      isValid: false
+    })
+>>>>>>> 3c93ba8c8a8b5c298ceae8d3c54a9f40e4b031d5
   }
 
   render () {
-    const invites = this.props.invites.map((value, index) => {
+    const invites = this.state.invites.map((value, index) => {
       return (
         <input
           key={index}
           className='form-fields__input'
           type='email'
           placeholder='name@domain.com'
-          onChange={this.handleAdressChange} />
+          onChange={this.handleAdressChange.bind(this, index)}/>
       )
     })
 
     return (
       <div className='form'>
         <div className='form-fields'>
-          <h1 className='form-fields__heading'>Shyfts is better together</h1>
+          <h1 className='form-fields__heading' onClick={() => console.log(this.state.isValid)}>Shyfts is better together</h1>
           <p className='form-fields__text'>
             Invite other people to get most out of Shyfts. Manage their shifts and free time.
           </p>
@@ -42,19 +73,17 @@ class Invites extends Component {
             Email Adress
           </label>
           {invites}
-          <div className='form_fields__add-adress'>
+          <div className='form_fields__add-adress' onClick={this.handleAddAdress}>
             + Add another Email
           </div>
         </div>
         <div className='main-footer'>
-          <div className='main-footer__button-wrapper'>
             <button className='main-footer__skip-button' onClick={this.handleSkip}>
               Skip for now
             </button>
-            <button disabled={!this.state.invites} className='main-footer__button' onClick={this.handleClick}>
+            <button disabled={!this.state.isValid} className='main-footer__button' onClick={this.handleClick}>
               Next
             </button>
-          </div>
         </div>
       </div>
     )

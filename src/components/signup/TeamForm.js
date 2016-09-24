@@ -34,7 +34,7 @@ class TeamForm extends Component {
           <input
             className='form-fields__input'
             type='text'
-            placeholder='Tonys Café, Legible Inc...'
+            placeholder='Tony’s Café, Legible Inc...'
             onChange={this.handleNameChange} />
         </div>
         <div className='main-footer'>

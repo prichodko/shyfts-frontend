@@ -9,7 +9,7 @@ class Canvas extends Component {
   render () {
     return (
       <div className='canvas-wrapper'>
-        <Navbar />
+        <Navbar data={this.props.data}/>
         <Datebar />
         <Planner />
       </div>
