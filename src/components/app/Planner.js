@@ -4,7 +4,7 @@ class Planner extends Component {
   render () {
     return (
       <div className='planner'>
-        
+
       </div>
     )
   }

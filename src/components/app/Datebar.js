@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Arrow from '../../assets/planner-arrow.svg'
+import Calendar from '../../assets/calendar.svg'
 
 class Datebar extends Component {
   render () {
@@ -32,10 +34,21 @@ class Datebar extends Component {
 
     return (
       <div className='datebar'>
-        <span className='datebar__weeks'>
-          {getDate(startOfWeek, endOfWeek).date}
-        </span>
-        {getDate(startOfWeek, endOfWeek).monthAndYear}
+        <div className='date-navigation'>
+          <div className='date-navigation__arrow-previous'>
+            <img src={Arrow} className='date-navigation__img'/>
+          </div>
+          <div className='date-navigation__calendar'>
+            <img src={Calendar} className='date-navigation__img'/>
+          </div>
+          <div className='date-navigation__arrow-next'>
+            <img src={Arrow} className='date-navigation__img'/>
+          </div>
+        </div>
+          <span className='datebar__weeks'>
+            {getDate(startOfWeek, endOfWeek).date}
+          </span>
+          {getDate(startOfWeek, endOfWeek).monthAndYear}
       </div>
     )
   }
