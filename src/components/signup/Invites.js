@@ -15,6 +15,7 @@ class Invites extends Component {
 
   handleClick (event) {
     event.preventDefault()
+    this.props.onSubmit()
     this.setState({ invites: '' })
   }
 

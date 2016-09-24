@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 import Logo from '../assets/logo.svg'
 import TeamForm from '../components/signup/TeamForm'
@@ -19,6 +20,7 @@ class Signup extends Component {
     }
 
     this.handleDataSubmit = this.handleDataSubmit.bind(this)
+    this.handleSigningUp = this.handleSigningUp.bind(this)
   }
 
   getForm (step) {
@@ -27,7 +29,7 @@ class Signup extends Component {
       { component: () => <NameForm onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <Overview data={this.state.data} onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <PasswordForm onDataSubmit={this.handleDataSubmit} /> },
-      { component: () => <Invites invites={this.state.data.invites} /> }
+      { component: () => <Invites invites={this.state.data.invites} onSubmit={this.handleSigningUp} /> }
     ]
 
     return forms[step].component()
@@ -36,6 +38,11 @@ class Signup extends Component {
   handleDataSubmit (data) {
     const updated = Object.assign({}, this.state.data, data)
     this.setState({ step: ++this.state.step, data: updated })
+  }
+
+  handleSigningUp () {
+    // save the user
+    <Link to='/app' />
   }
 
   render () {
