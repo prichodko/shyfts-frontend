@@ -15,7 +15,7 @@ class Pane extends Component {
         </div>
         <AddGroup />
         <GroupList />
-        <Profile />
+        <Profile data={this.props.data}/>
       </div>
     )
   }

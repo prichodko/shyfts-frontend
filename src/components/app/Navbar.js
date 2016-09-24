@@ -4,12 +4,14 @@ import { Link } from 'react-router'
 import Plus from '../../assets/plus.svg'
 
 class Navbar extends Component {
+
   render () {
+    const team = this.props.data.teamname
     return (
       <div className='navbar'>
         <div className='navbar__info'>
           <div className='navbar__teamname'>
-            Ordr team Prague
+            {team}
           </div>
           <span className='navbar__group-bubble'>ALL</span>
         </div>

@@ -27,16 +27,21 @@ class Signup extends Component {
       { component: () => <NameForm onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <Overview data={this.state.data} onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <PasswordForm onDataSubmit={this.handleDataSubmit} /> },
-      { component: () => <Invites onDataSubmit={this.handleDataSubmit}/> },
-      { component: () => <TeamForm onDataSubmit={this.handleDataSubmit} /> }
+      { component: () => <Invites onDataSubmit={this.handleDataSubmit}/> }
     ]
 
     return forms[step].component()
   }
 
   handleDataSubmit (data) {
-    const updated = Object.assign({}, this.state.data, data)
-    this.setState({ step: ++this.state.step, data: updated })
+    if (this.state.step < 4) {
+      const updated = Object.assign({}, this.state.data, data)
+      this.setState({ step: ++this.state.step, data: updated })
+    } else {
+      const updated = Object.assign({}, this.state.data, data)
+      this.setState({ step: 0, data: updated })
+    }
+
   }
 
   render () {

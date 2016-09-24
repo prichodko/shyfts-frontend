@@ -79,10 +79,12 @@
 
 .profile__avatar {
   background-color: lightgray;
+  text-align: center;
+  color: #666;
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  margin-right: 0.7rem; 
+  margin-right: 0.7rem;
 }
 
 .profile__name {

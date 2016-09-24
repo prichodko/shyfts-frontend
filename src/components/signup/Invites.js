@@ -10,6 +10,7 @@ class Invites extends Component {
 
     this.handleAdressChange = this.handleAdressChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleSkip = this.handleSkip.bind(this)
     this.handleAddAdress = this.handleAddAdress.bind(this)
   }
 
@@ -33,6 +34,16 @@ class Invites extends Component {
 
   handleAddAdress () {
     this.setState({invites: this.state.invites.concat([''])})
+  }
+
+  handleSkip (event) {
+    event.preventDefault()
+    const invites = this.state.invites
+    this.props.onDataSubmit({ invites: [] })
+    this.setState({
+      invites: ['', '', ''],
+      isValid: false
+    })
   }
 
   render () {
@@ -63,7 +74,7 @@ class Invites extends Component {
           </div>
         </div>
         <div className='main-footer'>
-            <button className='main-footer__skip-button'>
+            <button className='main-footer__skip-button' onClick={this.handleSkip}>
               Skip for now
             </button>
             <button disabled={!this.state.isValid} className='main-footer__button' onClick={this.handleClick}>
