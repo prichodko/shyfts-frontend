@@ -48,7 +48,9 @@ class Datebar extends Component {
           <span className='datebar__weeks'>
             {getDate(startOfWeek, endOfWeek).date}
           </span>
+          <span className='datebar__monthAndYear'>
           {getDate(startOfWeek, endOfWeek).monthAndYear}
+          </span>
       </div>
     )
   }
