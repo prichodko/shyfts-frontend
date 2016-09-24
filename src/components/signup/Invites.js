@@ -62,7 +62,7 @@ class Invites extends Component {
     return (
       <div className='form'>
         <div className='form-fields'>
-          <h1 className='form-fields__heading' onClick={() => console.log(this.state.isValid)}>Shyfts is better together</h1>
+          <h1 className='form-fields__heading'>Shyfts is better together</h1>
           <p className='form-fields__text'>
             Invite other people to get most out of Shyfts. Manage their shifts and free time.
           </p>
