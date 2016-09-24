@@ -25,9 +25,12 @@ class Invites extends Component {
   handleClick (event) {
     event.preventDefault()
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.props.onSubmit()
     this.setState({ invites: '' })
 =======
+=======
+>>>>>>> 3c93ba8c8a8b5c298ceae8d3c54a9f40e4b031d5
     const invites = this.state.invites
     this.props.onDataSubmit({ invites: invites })
     this.setState({
@@ -47,6 +50,9 @@ class Invites extends Component {
       invites: ['', '', ''],
       isValid: false
     })
+<<<<<<< HEAD
+>>>>>>> 3c93ba8c8a8b5c298ceae8d3c54a9f40e4b031d5
+=======
 >>>>>>> 3c93ba8c8a8b5c298ceae8d3c54a9f40e4b031d5
   }
 

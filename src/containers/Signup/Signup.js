@@ -29,7 +29,10 @@ class Signup extends Component {
       { component: () => <NameForm onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <Overview data={this.state.data} onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <PasswordForm onDataSubmit={this.handleDataSubmit} /> },
+<<<<<<< HEAD:src/containers/Signup/Signup.js
       // { component: () => <Invites invites={this.state.data.invites} onSubmit={this.handleSigningUp} /> }
+=======
+>>>>>>> 3c93ba8c8a8b5c298ceae8d3c54a9f40e4b031d5:src/containers/Signup/Signup.js
       { component: () => <Invites onDataSubmit={this.handleDataSubmit}/> }
     ]
 
@@ -45,11 +48,14 @@ class Signup extends Component {
       this.setState({ step: 0, data: updated })
     }
 
+<<<<<<< HEAD:src/containers/Signup/Signup.js
   }
 
   handleSigningUp () {
     // save the user
     <Link to='/app' />
+=======
+>>>>>>> 3c93ba8c8a8b5c298ceae8d3c54a9f40e4b031d5:src/containers/Signup/Signup.js
   }
 
   render () {
