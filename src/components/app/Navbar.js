@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
+import NewShift from '../modal/NewShift'
 import Plus from '../../assets/plus.svg'
 
 class Navbar extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      isNewShiftOpen: false,
+      isShiftDetailOpen: false
+    }
+
+    this.handleNewShiftClick = this.handleNewShiftClick.bind(this)
+  }
+
+  handleNewShiftClick () {
+    this.setState({ isNewShiftOpen: true })
+  }
 
   render () {
     const team = this.props.data.teamname
@@ -29,9 +43,10 @@ class Navbar extends Component {
             </Link>
           </li>
         </ul>
-        <div className='navbar__add-button'>
-          <img src={Plus} role="presentation"/>
-        </div>
+        <button className='navbar__add-button' onClick={this.handleNewShiftClick}>
+          <NewShift isOpen={this.state.isNewShiftOpen} />
+          <img src={Plus} role='presentation' />
+        </button>
       </div>
     )
   }
