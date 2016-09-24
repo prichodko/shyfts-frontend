@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
 
 import Logo from '../../assets/logo.svg'
 import TeamForm from '../../components/signup/TeamForm'
@@ -15,12 +15,11 @@ class Signup extends Component {
     super(props)
 
     this.state = {
-      step: 0,
+      step: 4,
       data: { teamname: '', firstname: '', lastname: '', password: '', invites: [] }
     }
 
     this.handleDataSubmit = this.handleDataSubmit.bind(this)
-    this.handleSigningUp = this.handleSigningUp.bind(this)
   }
 
   getForm (step) {
@@ -29,10 +28,6 @@ class Signup extends Component {
       { component: () => <NameForm onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <Overview data={this.state.data} onDataSubmit={this.handleDataSubmit} /> },
       { component: () => <PasswordForm onDataSubmit={this.handleDataSubmit} /> },
-<<<<<<< HEAD:src/containers/Signup/Signup.js
-      // { component: () => <Invites invites={this.state.data.invites} onSubmit={this.handleSigningUp} /> }
-=======
->>>>>>> 3c93ba8c8a8b5c298ceae8d3c54a9f40e4b031d5:src/containers/Signup/Signup.js
       { component: () => <Invites onDataSubmit={this.handleDataSubmit}/> }
     ]
 
@@ -46,16 +41,8 @@ class Signup extends Component {
     } else {
       const updated = Object.assign({}, this.state.data, data)
       this.setState({ step: 0, data: updated })
+      browserHistory.push('/app')
     }
-
-<<<<<<< HEAD:src/containers/Signup/Signup.js
-  }
-
-  handleSigningUp () {
-    // save the user
-    <Link to='/app' />
-=======
->>>>>>> 3c93ba8c8a8b5c298ceae8d3c54a9f40e4b031d5:src/containers/Signup/Signup.js
   }
 
   render () {

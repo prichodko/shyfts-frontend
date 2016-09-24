@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class Invites extends Component {
   constructor (props) {
     super(props)
@@ -24,6 +25,7 @@ class Invites extends Component {
 
   handleClick (event) {
     event.preventDefault()
+    this.setState({ invites: '' })
     const invites = this.state.invites
     this.props.onDataSubmit({ invites: invites })
     this.setState({
