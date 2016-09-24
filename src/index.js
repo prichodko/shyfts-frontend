@@ -18,7 +18,7 @@ import './index.css'
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/app' component={App} />
-    <Route path='/signup' component={Signup} />
+    <Route path='/' component={Signup} />
   </Router>,
   document.getElementById('root')
 )

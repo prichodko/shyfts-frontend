@@ -15,7 +15,7 @@ class Signup extends Component {
     super(props)
 
     this.state = {
-      step: 4,
+      step: 0,
       data: { teamname: '', firstname: '', lastname: '', password: '', invites: [] }
     }
 
