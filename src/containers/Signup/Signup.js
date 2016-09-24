@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-import Logo from '../assets/logo.svg'
-import TeamForm from '../components/signup/TeamForm'
-import NameForm from '../components/signup/NameForm'
-import Overview from '../components/signup/Overview'
-import PasswordForm from '../components/signup/PasswordForm'
-import Invites from '../components/signup/Invites'
+import Logo from '../../assets/logo.svg'
+import TeamForm from '../../components/signup/TeamForm'
+import NameForm from '../../components/signup/NameForm'
+import Overview from '../../components/signup/Overview'
+import PasswordForm from '../../components/signup/PasswordForm'
+import Invites from '../../components/signup/Invites'
 
 import './Singup.css'
 
