@@ -1,37 +1,52 @@
+
+/*.team > div {*/
+/*border: 1px solid black;*/
+/*}*/
+
 .team {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  padding: 0 8%;
+  padding: 2% 8% 0% 8%;
+  height: 100%;
 }
 
 .team__group {
   width: 100%;
+  min-height: min-content;
   display: flex;
   flex-direction: column;
 }
 
 .team-divider {
-  width: 100%;
-  margin: 1% 1% 0 1%;
-  font-size: 1.6em;
+  min-width: 100%;
+  font-size: 2em;
   color: #373D3F;
+  margin-top: 1.5em;
+  font-weight: 600;
+  line-height: 0;
 }
 
 .team__members-wrapper {
+  flex: 1;
+  min-height: 9em;
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between;
 }
 
 .team-member {
-  flex: 1;
+  margin-top: 2em;
+  flex: 1 0 auto;
   background: #FAFAFA;
   border-radius: 4px;
   display: flex;
   flex-direction: row;
-  margin: 1%;
-  min-width: 48%;
+  min-width: 45%;
   max-width: 48%;
+  min-height: 100px;
+  padding: 1rem 1.2rem;
 }
 
 .team-member__avatar {
@@ -41,43 +56,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1em;
+  margin-right: 1.2rem;
+  color: #FAFAFA;
+  font-size: 1.1em;
+  font-weight: 600;
 }
 
 .team-member__initials {
-  font-size: 2em;
-  color: #FAFAFA;
   font-weight: 300;
   line-height: 0;
 }
 
-.data-wrapper {
-  padding: 1em 1em 1em 0;
+.team-member__data-wrapper {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.name {
+.team-member__name {
   font-size: 1.5em;
   font-weight: 300;
   color: #373D3F;
+  flex: 1;
 }
 
-.position {
+.team-member__position {
   text-align: center;
-  border-radius: 100px;
+  max-width: 8em;
+  margin-bottom: 1em;
+  border-radius: 4em;
   font-size: 0.8em;
   color: #FFFFFF;
-  letter-spacing: 0.1em;
-  line-height: 2.4em;
-  font-weight: 100;
-  width: 10em;
+  font-weight: 600;
+  /*padding: 0.5em 0.2em;*/
 }
 
-.info {
+.team-member__info-wrapper {
   width: 100%;
   display: flex;
   flex-direction: row;
-  display: flex;
   justify-content: space-between;
 }
 
@@ -86,15 +103,23 @@
 
 }
 
-.info-wrapper__data {
+.team-member__info {
+  text-align: left
+}
+
+.team-member__info-data {
   color: #373D3F;
   font-size: 1.4em;
   font-weight: 300;
-  line-height: 1em;
+  line-height: 1;
+  margin: 0;
+  margin-bottom: 0.2em;
 }
 
-.info-wrapper__label {
+.team-member__info-label {
   font-size: 0.8em;
   font-weight: 100;
   color: #A7B0B2;
+    line-height: 0.8;
+  margin: 0;
 }
