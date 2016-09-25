@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import profileData from '../../data/profile'
 
 import NewShift from '../modal/NewShift'
 import Plus from '../../assets/plus.svg'
@@ -13,14 +14,26 @@ class Navbar extends Component {
     }
 
     this.handleNewShiftClick = this.handleNewShiftClick.bind(this)
+    this.handleSave = this.handleSave.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   handleNewShiftClick () {
     this.setState({ isNewShiftOpen: true })
   }
 
+  handleCancel (event) {
+    event.preventDefault()
+    this.setState({isNewShiftOpen : false})
+  }
+
+  handleSave (event) {
+    event.preventDefault()
+    this.setState({isNewShiftOpen : false})
+  }
+
   render () {
-    const team = this.props.data.teamname
+    const team = profileData.teamname
     return (
       <div className='navbar'>
         <div className='navbar__info'>
@@ -44,7 +57,7 @@ class Navbar extends Component {
           </li>
         </ul>
         <button className='navbar__add-button' onClick={this.handleNewShiftClick}>
-          <NewShift isOpen={this.state.isNewShiftOpen} />
+          {this.state.isNewShiftOpen && <NewShift isOpen={this.state.isNewShiftOpen} onCancel={this.handleCancel} onSave={this.handleSave}/>}
           <img src={Plus} role='presentation' />
         </button>
       </div>

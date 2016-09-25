@@ -5,6 +5,8 @@ import 'rc-time-picker/assets/index.css'
 
 import Modal from './Modal'
 
+import '../../containers/App/App.css'
+
 class NewShift extends Component {
   constructor (props) {
     super(props)
@@ -86,10 +88,10 @@ class NewShift extends Component {
           </div>
         </div>
         <div className='modal__buttons'>
-          <button className='modal__button-cancel'>
+          <button className='modal__button-cancel' onClick={this.props.onCancel}>
             Cancel
           </button>
-          <button className='modal__button-save'>
+          <button className='modal__button-save' onClick={this.props.onSave}>
             Save
           </button>
         </div>
