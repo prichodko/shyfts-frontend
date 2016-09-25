@@ -1,31 +1,34 @@
 import React, { Component } from 'react'
 import TeamMember from '../../components/team/TeamMember'
 import TeamDivider from '../../components/team/TeamDivider'
-import TeamData from '../../data/team'
-
+import teamData from '../../data/team'
 
 import './Team.css'
 
 class Team extends Component {
   render () {
-    const team = TeamData.team
+    console.log(teamData)
+    const team = teamData
     const sortedTeam = team.sort((a, b) => a.lastname.localeCompare(b.lastname))
-    let membersWithDivider = {}
+    let sortedMembers = {}
 
     sortedTeam.forEach((member) => {
-      if (typeof(membersWithDivider[member.lastname.charAt(0)]) === 'undefined') {
-        membersWithDivider[member.lastname.charAt(0)] = []
+      const key = member.lastname.charAt(0)
+      if (typeof (sortedMembers[key]) === 'undefined') {
+        sortedMembers[key] = []
       }
-      membersWithDivider[member.lastname.charAt(0)] = [...membersWithDivider[member.lastname.charAt(0)], member]
+      sortedMembers[key] = [...sortedMembers[key], member]
     })
 
-    const jsxTeam = Object.keys(membersWithDivider).map((key) => {
-      const members = membersWithDivider[key].map((member, index) => {
-        return <TeamMember key={index} teamMember={member} />
+    const Team = Object.keys(sortedMembers).map((key) => {
+      const members = sortedMembers[key].map((member, index) => {
+        return <TeamMember key={index} data={member} />
       })
-      return(
+      return (
         <div className='team__group' key={key}>
-          <TeamDivider>{key}</TeamDivider>
+          <TeamDivider>
+            {key}
+          </TeamDivider>
           <div className='team__members-wrapper'>
             {members}
           </div>
@@ -35,7 +38,7 @@ class Team extends Component {
 
     return (
       <div className='team'>
-      {jsxTeam}
+        {Team}
       </div>
     )
   }
