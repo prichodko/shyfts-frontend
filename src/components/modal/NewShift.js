@@ -33,6 +33,14 @@ class NewShift extends Component {
   }
 
   render () {
+    const repeatingDays = this.state.repeat.map((value, index) => {
+      return <button key={index} className={value.selected ? 'modal__repeat--active' : 'modal__repeat'} onClick={ () => {
+        const repeat = this.state.repeat
+        repeat[index].selected = !repeat[index].selected
+        this.setState({ repeat: repeat })
+      }}>{value.id}</button>
+    })
+
     return (
       <Modal isOpen={this.props.isOpen}>
         <div className='modal__content'>
@@ -64,11 +72,17 @@ class NewShift extends Component {
               <TimePicker showSecond={false} defaultValue={this.state.toTime} className='modal__input' />
             </div>
           </div>
-          <div>
+          <div className='modal__label'>Repeat</div>
+          <div className='modal__addon'>
+            {repeatingDays}
+          </div>
+          <div className=''>
             <div className='modal__label'>
               Person
             </div>
-            <input type='number' />
+          </div>
+          <div className='modal__addon'>
+            <input type='number' className='modal__person-counter' defaultValue={1} />
           </div>
         </div>
         <div className='modal__buttons'>
