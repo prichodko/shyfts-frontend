@@ -9,7 +9,7 @@ class Navbar extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      isNewShiftOpen: false,
+      isNewShiftOpen: true,
       isShiftDetailOpen: false
     }
 

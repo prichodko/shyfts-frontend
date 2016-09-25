@@ -231,6 +231,7 @@
 
 .modal__team-button-cancel:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .modal__team-button-save {
@@ -246,5 +247,6 @@
 }
 
 .modal__team-button-save:hover {
-  opacity: 0.9;
+  opacity: 0.8;
+  cursor: pointer;
 }

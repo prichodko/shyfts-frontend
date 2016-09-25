@@ -60,7 +60,7 @@ class EmployeeDetail extends Component {
           </div>
         </div>
         <div className='modal__team-buttons'>
-          <button className='modal__button-cancel'onClick={this.props.onCancel}>
+          <button className='modal__team-button-cancel'onClick={this.props.onCancel}>
             Cancel
           </button>
           <button className='modal__team-button-save' style={{ background: color }} onClick={() => this.props.onSave(this.props.selectedMember.id, this.state.hourlyRate) }>

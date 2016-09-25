@@ -46,54 +46,74 @@ class NewShift extends Component {
     return (
       <Modal isOpen={this.props.isOpen}>
         <div className='modal__content'>
-          <div className='modal__heading'>
-            New Shift
+
+          <div className={'modal__block'}>
+            <h2 className='modal__heading'>New Shift</h2>
           </div>
-          <div className='modal__group'>
-            ALL
+
+          <div className='modal__block'>
+            <div className='modal__group-bubble'>
+              ALL
+            </div>
           </div>
-          <div className='modal__addon'>
-            <button className={this.state.assigned ? 'model__assignability--active' : 'model__assignability'} onClick={this.handleAssignability}>
+
+          <div className='modal__block'>
+            <button disabled={this.state.assigned} className={this.state.assigned ? 'model__assignability--active model__assignability-left' : 'model__assignability model__assignability-left'} onClick={this.handleAssignability}>
               Assigned
             </button>
-            <button className={this.state.assigned ? 'model__assignability' : 'model__assignability--active'} onClick={this.handleAssignability}>
+            <button disabled={!this.state.assigned} className={this.state.assigned ? 'model__assignability  model__assignability-right' : 'model__assignability--active model__assignability-right'} onClick={this.handleAssignability}>
               Unassigned
             </button>
           </div>
-          <div className='modal__addon'>
-            <div className='modal__item'>
+
+          <div className='modal__block'>
+            <div className='modal__element'>
               <div className='modal__label'>
                 From
               </div>
               <TimePicker showSecond={false} defaultValue={this.state.toTime} className='modal__input' />
             </div>
-            <div className='modal__item'>
+
+            <div>
               <div className='modal__label'>
-                To
+                Until
               </div>
               <TimePicker showSecond={false} defaultValue={this.state.toTime} className='modal__input' />
             </div>
           </div>
-          <div className='modal__label'>Repeat</div>
-          <div className='modal__addon'>
-            {repeatingDays}
-          </div>
-          <div className=''>
-            <div className='modal__label'>
-              Person
+
+          <div className='modal__block'>
+            <div className='modal__element'>
+              <div className='modal__label'>
+                Repeat
+              </div>
+              <div className='modal__repeat-buttons-container'>
+                {repeatingDays}
+              </div>
             </div>
           </div>
-          <div className='modal__addon'>
-            <input type='number' className='modal__person-counter' defaultValue={1} />
+
+          <div className='modal__block'>
+            <div className='modal__element'>
+              <div className='modal__label'>
+                People
+                </div>
+                <input type='number' min={0} className='modal__person-counter' defaultValue={1} />
+            </div>
           </div>
+
         </div>
+
         <div className='modal__buttons'>
+
           <button className='modal__button-cancel' onClick={this.props.onCancel}>
             Cancel
           </button>
+
           <button className='modal__button-save' onClick={this.props.onSave}>
             Save
           </button>
+
         </div>
       </Modal>
     )
