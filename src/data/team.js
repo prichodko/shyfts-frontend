@@ -1,8 +1,8 @@
-export default {team: [
+const team = [
   {
     firstname: 'Mathew',
     lastname: 'Gomez',
-    position: 'WAITER',
+    position: 'MESSENGERS',
     color: '#FEE000',
     scheduledHours: 25,
     hourlyRate: 140,
@@ -12,7 +12,7 @@ export default {team: [
   {
     firstname: 'Annie',
     lastname: 'Brodeaur',
-    position: 'WAITER',
+    position: 'MESSENGERS',
     color: '#FEE000',
     scheduledHours: 140,
     hourlyRate: 180,
@@ -22,7 +22,37 @@ export default {team: [
   {
     firstname: 'Nellie',
     lastname: 'Audemire',
-    position: 'CHEFF',
+    position: 'CHEFS',
+    color: '#E63657',
+    scheduledHours: 43,
+    hourlyRate: 225,
+    currency: 'CZK',
+    daysOffLeft: 20
+  },
+  {
+    firstname: 'John',
+    lastname: 'Augmented',
+    position: 'CHEFS',
+    color: '#E63657',
+    scheduledHours: 43,
+    hourlyRate: 225,
+    currency: 'CZK',
+    daysOffLeft: 20
+  },
+   {
+    firstname: 'John',
+    lastname: 'Augmented',
+    position: 'CHEFS',
+    color: '#E63657',
+    scheduledHours: 43,
+    hourlyRate: 225,
+    currency: 'CZK',
+    daysOffLeft: 20
+  },
+   {
+    firstname: 'John',
+    lastname: 'Augmented',
+    position: 'CHEFS',
     color: '#E63657',
     scheduledHours: 43,
     hourlyRate: 225,
@@ -32,7 +62,7 @@ export default {team: [
   {
     firstname: 'Albert',
     lastname: 'Baxton',
-    position: 'WAITER',
+    position: 'MESSENGERS',
     color: '#FEE000',
     scheduledHours: 12,
     hourlyRate: 180,
@@ -42,7 +72,7 @@ export default {team: [
   {
     firstname: 'Glenn',
     lastname: 'Anderson',
-    position: 'CHEFF',
+    position: 'CHEFS',
     color: '#E63657',
     scheduledHours: 120,
     hourlyRate: 200,
@@ -50,4 +80,5 @@ export default {team: [
     daysOffLeft: 20
   }
 ]
-}
+
+export default team
