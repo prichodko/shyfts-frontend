@@ -20,6 +20,12 @@ class PasswordForm extends Component {
     this.setState({ password: '' })
   }
 
+  handleEnter (event) {
+    const password = this.state.password.trim()
+    this.props.onDataSubmit({ password: password })
+    this.setState({ password: '' })
+  }
+
   render () {
     return (
       <div className='form'>
@@ -36,7 +42,8 @@ class PasswordForm extends Component {
             type='password'
             placeholder='Password'
             value={this.state.password}
-            onChange={this.handlePasswordChange} />
+            onChange={this.handlePasswordChange}
+            onKeyDown={(event) => {if(event.which === 13 && this.state.password.length >= 6){this.handleEnter()}}} />
         </div>
         <div className='main-footer'>
           <button disabled={this.state.password.length < 6} className='main-footer__button' onClick={this.handleClick}>

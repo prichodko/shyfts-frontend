@@ -20,6 +20,12 @@ class TeamForm extends Component {
     this.setState({ teamname: '' })
   }
 
+  handleEnter (event) {
+    const teamname = this.state.teamname.trim()
+    this.props.onDataSubmit({ teamname: teamname })
+    this.setState({ teamname: '' })
+  }
+
   render () {
     return (
       <div className='form'>
@@ -35,7 +41,8 @@ class TeamForm extends Component {
             className='form-fields__input'
             type='text'
             placeholder='Tony’s Café, Legible Inc...'
-            onChange={this.handleNameChange} />
+            onChange={this.handleNameChange}
+            onKeyDown={(event) => {if(event.which === 13 && this.state.teamname){this.handleEnter()}}} />
         </div>
         <div className='main-footer'>
           <button disabled={!this.state.teamname} className='main-footer__button' onClick={this.handleClick}>

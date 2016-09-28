@@ -30,6 +30,13 @@ class NameForm extends Component {
     this.setState({ firstname: '', lastname: '' })
   }
 
+  handleEnter (event) {
+    const firstname = this.state.firstname.trim()
+    const lastname = this.state.lastname.trim()
+    this.props.onDataSubmit({ firstname: firstname, lastname: lastname })
+    this.setState({ firstname: '', lastname: '' })
+  }
+
   render () {
     return (
       <div className='form'>
@@ -46,12 +53,14 @@ class NameForm extends Component {
               className='form-fields__input form-fields__input--half-width'
               type='text'
               placeholder='First Name'
-              onChange={this.handleFirstnameChange} />
+              onChange={this.handleFirstnameChange}
+              onKeyDown={(event) => {if(event.which === 13 && (this.state.firstname && this.state.lastname)){this.handleEnter()}}} />
             <input
               className='form-fields__input form-fields__input--half-width'
               type='text'
               placeholder='Last Name'
-              onChange={this.handleLastnameChange} />
+              onChange={this.handleLastnameChange}
+              onKeyDown={(event) => {if(event.which === 13 && (this.state.firstname && this.state.lastname)){this.handleEnter()}}} />
           </div>
         </div>
         <div className='main-footer'>
