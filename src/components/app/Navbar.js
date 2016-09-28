@@ -24,12 +24,12 @@ class Navbar extends Component {
 
   handleCancel (event) {
     event.preventDefault()
-    this.setState({isNewShiftOpen : false})
+    this.setState({isNewShiftOpen: false})
   }
 
   handleSave (event) {
     event.preventDefault()
-    this.setState({isNewShiftOpen : false})
+    this.setState({isNewShiftOpen: false})
   }
 
   render () {
@@ -42,24 +42,18 @@ class Navbar extends Component {
           </div>
           <span className='navbar__group-bubble'>ALL</span>
         </div>
-        <ul className='navbar__list'>
-          <li className='navbar__item'>
-            <Link to='/app' className='navbar__link'> Shifts
-            </Link>
-          </li>
-          <li className='navbar__item'>
-            <Link to='/app/team' className='navbar__link'> Team
-            </Link>
-          </li>
-          <li className='navbar__item'>
-            <Link to='/app/payroll' className='navbar__link'> Payroll
-            </Link>
-          </li>
-        </ul>
+        <div className='navbar__list'>
+          <Link to='/app' className='navbar__link' activeClassName='navbar__link--active' onlyActiveOnIndex> Shifts
+          </Link>
+          <Link to='/app/team' className='navbar__link' activeClassName='navbar__link--active'> Team
+          </Link>
+          <Link to='/app/payroll' className='navbar__link' activeClassName='navbar__link--active'> Payroll
+          </Link>
+        </div>
         <button className='navbar__add-button' onClick={this.handleNewShiftClick}>
           <img src={Plus} role='presentation' />
         </button>
-         {this.state.isNewShiftOpen && <NewShift isOpen onCancel={this.handleCancel} onSave={this.handleSave} />}
+        {this.state.isNewShiftOpen && <NewShift isOpen onCancel={this.handleCancel} onSave={this.handleSave} />}
       </div>
     )
   }
