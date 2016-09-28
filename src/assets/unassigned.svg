@@ -1,0 +1,8 @@
+<svg width="1rem" viewBox="32 42 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Outline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(32.000000, 42.000000)">
+        <path d="M6,6 L6,6 C7.3254834,6 8.4,4.9254834 8.4,3.6 C8.4,2.2745166 7.3254834,1.2 6,1.2 C4.6745166,1.2 3.6,2.2745166 3.6,3.6 C3.6,4.9254834 4.6745166,6 6,6 L6,6 Z M6,7.2 L6,7.2 C4.0117749,7.2 2.4,5.5882251 2.4,3.6 C2.4,1.6117749 4.0117749,0 6,0 C7.9882251,0 9.6,1.6117749 9.6,3.6 C9.6,5.5882251 7.9882251,7.2 6,7.2 L6,7.2 Z" id="Shape" fill="#FFFFFF"></path>
+        <path d="M10.8,12 C10.8,9.3490332 8.6509668,7.2 6,7.2 C3.3490332,7.2 1.2,9.3490332 1.2,12 M0,12 C0,8.6862915 2.6862915,6 6,6 C9.3137085,6 12,8.6862915 12,12" id="Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>
