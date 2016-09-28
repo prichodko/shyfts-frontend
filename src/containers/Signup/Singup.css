@@ -77,6 +77,12 @@
   outline: none;
   border: 0.08em solid #999;
   border-radius: 0.3em;
+  transition: 200ms ease;
+}
+
+.form-fields__input:focus {
+  border: 0.08em solid #37D37F;
+  transition: 200ms ease;
 }
 
 .form-fields__input-wrapper {
@@ -94,7 +100,6 @@
 }
 
 .form-fields__overview-item {
-  border-bottom: 0.1em solid #babbbf;
   margin-bottom: 2em;
   width: 100%;
   outline: 0;
@@ -102,14 +107,23 @@
 
 .form-fields__overview-input {
   background: 0 0;
+  width: 100%;
   border: none;
-  width: 90%;
+  border-bottom: 0.1em solid #babbbf;
   font-size: 1.2rem;
   padding: 0;
   margin-left: 0;
   color: #434245;
   height: 2.5rem;
   outline: none;
+  transition: 200ms ease;
+  padding: 1.2em 0 1.2em 0;
+  transition: 200ms ease;
+}
+
+.form-fields__overview-input:focus {
+  border-bottom: 0.1em solid #37D37F;
+  transition: 200ms ease;
 }
 
 .form_fields__add-adress {
