@@ -8,10 +8,9 @@ import Signup from './containers/Signup/Signup'
 import App from './containers/App/App'
 import Calendar from './containers/Calendar/Calendar'
 import Team from './containers/Team/Team'
-// import Payroll from './containers/Payroll'
+import Payroll from './containers/Payroll/Payroll'
     // <IndexRoute component={Calendar} />
 
-   // <Route path='payroll' component={Payroll} />
 
 import './index.css'
 
@@ -20,6 +19,7 @@ ReactDOM.render(
     <Route path='/app' component={App}>
       <IndexRoute component={Calendar} />
       <Route path='team' component={Team} />
+      <Route path='payroll' component={Payroll} />
     </Route>
     <Route path='/' component={Signup} />
   </Router>,

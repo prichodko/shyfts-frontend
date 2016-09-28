@@ -39,11 +39,11 @@
 .team-member {
   margin-top: 2em;
   flex: 1 0 auto;
-  background: #FAFAFA;
+  background: #FFFFFF;
   border-radius: 4px;
   display: flex;
   flex-direction: row;
-  min-width: 30em;
+  min-width: 48%;
   max-width: 48%;
   min-height: 100px;
   padding: 1rem 1.2rem;
@@ -88,8 +88,8 @@
   border-radius: 4em;
   font-size: 0.8em;
   color: #FFFFFF;
-  font-weight: 600;
-  /*padding: 0.5em 0.2em;*/
+  font-weight: 100;
+  letter-spacing: 0.7px;
 }
 
 .team-member__info-wrapper {

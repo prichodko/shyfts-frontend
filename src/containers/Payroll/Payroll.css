@@ -1,0 +1,122 @@
+.payroll {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 2% 8% 8% 8%;
+  height: 100%;
+  background: #F1F2F4;
+}
+
+.payroll__content {
+  background: #FFFFFF;
+  padding: 1%;
+  border-radius: 10px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.payroll__graphAndData {
+  display: flex;
+  flex-direction: row;
+}
+
+.payroll__heading {
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+
+.payroll__block {
+  flex: 1;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.payroll__line-element {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.payroll__group-bubble {
+  text-align: center;
+  max-width: 8em;
+  margin-bottom: 1em;
+  border-radius: 4em;
+  font-size: 0.8em;
+  color: #FFFFFF;
+  font-weight: 100;
+  letter-spacing: 0.7px;
+}
+
+.payroll__monthly-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.payroll__info {
+  text-align: left;
+  flex:1;
+}
+
+.payroll__info-data {
+  color: #373D3F;
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0;
+  margin-bottom: 0.2em;
+}
+
+.payroll__info-label {
+  font-size: 0.8em;
+  font-weight: 100;
+  color: #A7B0B2;
+  line-height: 0.8;
+  margin: 0;
+}
+
+.payroll__lower {
+  display: flex;
+  flex-direction: row;
+}
+
+.lower__block {
+  flex: 1;
+}
+
+.lower__content {
+  background: #FFFFFF;
+  padding: 1em;
+  border-radius: 10px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.lower__line-element {
+  display: flex;
+  flex-direction: row;
+}
+
+.lower__hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.bubble-and-data {
+  flex:1;
+}
+
+.bubble-and-data__container {
+
+}

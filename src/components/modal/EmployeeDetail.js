@@ -52,7 +52,7 @@ class EmployeeDetail extends Component {
               <span className='team-member__info-data'>{currency}</span>
               <p className='team-member__info-label'>HOURLY RATE</p>
             </div>
-            <img src={Edit} className='modal__team-edit' onClick={this.handleEnableEdit}/>
+            <img src={Edit} className='modal__team-edit' onClick={this.handleEnableEdit} role='presentation'/>
           </div>
           <div className='modal__team-info'>
             <Info label='Date of birth' data={dateOfBirth} />
