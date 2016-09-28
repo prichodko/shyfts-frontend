@@ -44,9 +44,9 @@ class Navbar extends Component {
           </li>
         </ul>
         <button className='navbar__add-button' onClick={this.handleNewShiftClick}>
-          <NewShift isOpen={this.state.isNewShiftOpen} />
           <img src={Plus} role='presentation' />
         </button>
+         {this.state.isNewShiftOpen && <NewShift isOpen />}
       </div>
     )
   }
