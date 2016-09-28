@@ -27,27 +27,40 @@ class NewShift extends Component {
         { id: 'Fri', selected: false },
         { id: 'Sat', selected: false },
         { id: 'Sun', selected: false }
-      ]
+      ],
+      employees: 1
     }
 
     this.handleAssignability = this.handleAssignability.bind(this)
+    this.handleSaveClick = this.handleSaveClick.bind(this)
   }
 
-  handleAssignability (event) {
-    event.preventDefault()
+  handleAssignability (e) {
+    e.preventDefault()
     this.setState({ assigned: !this.state.assigned })
+  }
+
+  handleSaveClick (e) {
+    e.preventDefault()
+    const shift = {
+      start: this.state.start,
+      end: this.state.end,
+      assigned: this.state.assigned,
+      employees: this.state.employees
+    }
+    this.props.onSave(shift)
   }
 
   render () {
     const repeatingDays = this.state.repeat.map((value, index) => {
-      return <button key={index} className={value.selected ? 'modal__repeat--active' : 'modal__repeat'} onClick={ () => {
+      const handleClick = () => {
         const repeat = this.state.repeat
         repeat[index].selected = !repeat[index].selected
         this.setState({ repeat: repeat })
-      }}>{value.id}</button>
+      }
+      return <button key={index} className={value.selected ? 'modal__repeat--active' : 'modal__repeat'} onClick={handleClick}>{value.id}</button>
     })
 
-    console.log('NEW', this.state)
     return (
       <Modal isOpen={this.props.isOpen}>
         <div className='modal__content'>
@@ -63,11 +76,17 @@ class NewShift extends Component {
           </div>
 
           <div className='modal__block'>
-            <button disabled={this.state.assigned} className={this.state.assigned ? 'model__assignability--active model__assignability-left' : 'model__assignability model__assignability-left'} onClick={this.handleAssignability}>
+            <button
+              disabled={this.state.assigned}
+              className={this.state.assigned ? 'model__assignability--active model__assignability-left' : 'model__assignability model__assignability-left'}
+              onClick={this.handleAssignability}>
               <img src={this.state.assigned ? AssignedWhite : AssignedGray} className='model__assignability-img'/>
                Assigned
             </button>
-            <button disabled={!this.state.assigned} className={this.state.assigned ? 'model__assignability  model__assignability-right' : 'model__assignability--active model__assignability-right'} onClick={this.handleAssignability}>
+            <button
+              disabled={!this.state.assigned}
+              className={this.state.assigned ? 'model__assignability  model__assignability-right' : 'model__assignability--active model__assignability-right'} 
+              onClick={this.handleAssignability}>
               <img src={!this.state.assigned ? UnassignedWhite : UnassignedGray} className='model__assignability-img'/>
               Unassigned
             </button>
@@ -104,14 +123,18 @@ class NewShift extends Component {
             <div className='modal__element'>
               <div className='modal__label'>
                 Repeat - Weeks
-                </div>
-                <input type='number' min={0} className='modal__person-counter' defaultValue={0} />
+              </div>
+              <input type='number' min={0} className='modal__person-counter' defaultValue={0} />
             </div>
             <div>
               <div className='modal__label'>
                 Employees
-                </div>
-                <input type='number' min={0} className='modal__person-counter' defaultValue={1} />
+              </div>
+              <input type='number'
+                className='modal__person-counter'
+                value={this.state.employees}
+                onChange={(e) => this.setState({ employees: e.target.value })}
+                min={1} />
             </div>
           </div>
 
@@ -123,7 +146,7 @@ class NewShift extends Component {
             Cancel
           </button>
 
-          <button className='modal__button-save' onClick={this.props.onSave}>
+          <button className='modal__button-save' onClick={this.handleSaveClick}>
             Save
           </button>
 
