@@ -49,6 +49,7 @@ class Overview extends Component {
             <input
               type='text'
               className='form-fields__overview-input'
+              autoFocus
               value={this.state.teamname}
               onChange={this.handleTeamnameChange} />
           </div>

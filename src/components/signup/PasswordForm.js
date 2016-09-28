@@ -41,6 +41,7 @@ class PasswordForm extends Component {
             className='form-fields__input'
             type='password'
             placeholder='Password'
+            autoFocus
             value={this.state.password}
             onChange={this.handlePasswordChange}
             onKeyDown={(event) => {if(event.which === 13 && this.state.password.length >= 6){this.handleEnter()}}} />
