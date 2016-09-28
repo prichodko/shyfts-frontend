@@ -2,15 +2,14 @@ import React from 'react'
 
 import Info from './Info'
 
-const TeamMember = ({ data }) => {
-  console.log(data)
+const TeamMember = ({ data, onMemberSelect, index }) => {
   const { firstname, lastname, position, color, scheduledHours, hourlyRate, currency, daysOffLeft } = data
   const payment = hourlyRate + ' ' + currency
   const initials = (firstname.charAt(0) + lastname.charAt(0)).toUpperCase()
   const name = firstname + ' ' + lastname
 
   return (
-    <div className='team-member'>
+    <div className='team-member' onClick={() => onMemberSelect(data)}>
       <div className='team-member__avatar' style={{ background: color }}>
         {initials}
       </div>

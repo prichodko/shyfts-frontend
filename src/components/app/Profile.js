@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import profileData from '../../data/profile'
 
 import Arrow from '../../assets/profile-arrow.svg'
 
 class Profile extends Component {
   render () {
-    const user = this.props.data.firstname + ' '  + this.props.data.lastname
-    const initials = (this.props.data.firstname.charAt(0) + this.props.data.lastname.charAt(0)).toUpperCase()
+    const user = profileData.firstname + ' ' + profileData.lastname
+    const initials = (profileData.firstname.charAt(0) + profileData.lastname.charAt(0)).toUpperCase()
     return (
       <div className='profile'>
         <div className='profile__avatar'>

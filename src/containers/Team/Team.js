@@ -2,13 +2,59 @@ import React, { Component } from 'react'
 import TeamMember from '../../components/team/TeamMember'
 import TeamDivider from '../../components/team/TeamDivider'
 import teamData from '../../data/team'
+import EmployeeDetail from '../../components/modal/EmployeeDetail'
+
 
 import './Team.css'
 
 class Team extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      team: teamData,
+      isNewMemberOpen: false,
+      isMemberDetailOpen: false,
+      selectedMember: {},
+    }
+
+    this.handleMemberClick = this.handleMemberClick.bind(this)
+    this.handleSave = this.handleSave.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
+  }
+
+  handleMemberClick (member, index) {
+    this.setState({
+      isMemberDetailOpen: true,
+      selectedMember: member,
+    })
+  }
+
+  handleCancel (event) {
+    event.preventDefault()
+    this.setState({
+      isMemberDetailOpen : false,
+      selectedMember: {}
+    })
+  }
+
+  handleSave (id, hourlyRate) {
+    const team = this.state.team
+    team.forEach(member => {
+      if (member.id === id) {
+        member.hourlyRate = hourlyRate
+      }
+    })
+
+    this.setState({
+      isMemberDetailOpen : false,
+      selectedMember: {},
+      team: team
+    })
+  }
+
+
   render () {
-    console.log(teamData)
-    const team = teamData
+    const team = this.state.team
     const sortedTeam = team.sort((a, b) => a.lastname.localeCompare(b.lastname))
     let sortedMembers = {}
 
@@ -22,7 +68,7 @@ class Team extends Component {
 
     const Team = Object.keys(sortedMembers).map((key) => {
       const members = sortedMembers[key].map((member, index) => {
-        return <TeamMember key={index} data={member} />
+        return <TeamMember key={index} index={member.id} data={member} onMemberSelect={this.handleMemberClick}/>
       })
       return (
         <div className='team__group' key={key}>
@@ -39,6 +85,7 @@ class Team extends Component {
     return (
       <div className='team'>
         {Team}
+        {Object.keys(this.state.selectedMember).length === 0 && this.state.selectedMember.constructor === Object ? null : <EmployeeDetail isOpen={this.state.isMemberDetailOpen} selectedMember={this.state.selectedMember} onSave={this.handleSave} onCancel={this.handleCancel}/> }
       </div>
     )
   }

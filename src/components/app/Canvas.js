@@ -6,7 +6,7 @@ class Canvas extends Component {
   render () {
     return (
       <div className='canvas-wrapper'>
-        <Navbar data={this.props.data}/>
+        <Navbar/>
         {this.props.children}
       </div>
     )
