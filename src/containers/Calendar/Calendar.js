@@ -4,6 +4,7 @@ import moment from 'moment'
 import BigCalendar from '../../components/calendar'
 import ShiftEvent from '../../components/calendar/ShiftEvent'
 import NewShift from '../../components/modal/NewShift'
+import ShiftDetail from '../../components/modal/ShiftDetail'
 
 import eventsData from '../../data/events'
 
@@ -18,6 +19,7 @@ class Calendar extends Component {
     this.state = {
       events: eventsData,
       isNewShiftOpen: false,
+      isShiftDetailOpen: true,
       start: moment(),
       end: moment()
     }
@@ -67,6 +69,7 @@ class Calendar extends Component {
           components={{ event: ShiftEvent }}
         />
         {this.state.isNewShiftOpen && <NewShift isOpen onSave={this.handleSave} onCancel={this.handleCancel} start={this.state.start} end={this.state.end} />}
+        {this.state.isShiftDetailOpen && <ShiftDetail isOpen  />}
       </div>
     )
   }
