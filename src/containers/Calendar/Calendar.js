@@ -31,9 +31,22 @@ class Calendar extends Component {
     this.setState({ isNewShiftOpen: true, start: start, end: end })
   }
 
-  handleSave (e) {
-    e.preventDefault()
-    // add new shift to this.state.events
+  handleSave (shift) {
+    const events = this.state.events
+    const newEvent = {
+      title: 'Shift',
+      start: shift.start.toDate(),
+      end: shift.end.toDate(),
+      assigned: shift.assigned,
+      people: shift.employees
+    }
+
+    events.push(newEvent)
+
+    console.log('NEW EVENT', newEvent)
+    console.log('OLD EVENTS', events)
+
+    this.setState({ isNewShiftOpen: false, events: events })
   }
 
   handleCancel (e) {
