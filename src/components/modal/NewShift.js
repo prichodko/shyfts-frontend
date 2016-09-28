@@ -4,6 +4,10 @@ import TimePicker from 'rc-time-picker'
 import 'rc-time-picker/assets/index.css'
 
 import Modal from './Modal'
+import UnassignedWhite from '../../assets/unassigned.svg'
+import AssignedWhite from '../../assets/assigned.svg'
+import UnassignedGray from '../../assets/unassigned-gray.svg'
+import AssignedGray from '../../assets/assigned-gray.svg'
 
 import '../../containers/App/App.css'
 
@@ -60,9 +64,11 @@ class NewShift extends Component {
 
           <div className='modal__block'>
             <button disabled={this.state.assigned} className={this.state.assigned ? 'model__assignability--active model__assignability-left' : 'model__assignability model__assignability-left'} onClick={this.handleAssignability}>
-              Assigned
+              <img src={this.state.assigned ? AssignedWhite : AssignedGray} className='model__assignability-img'/>
+               Assigned
             </button>
             <button disabled={!this.state.assigned} className={this.state.assigned ? 'model__assignability  model__assignability-right' : 'model__assignability--active model__assignability-right'} onClick={this.handleAssignability}>
+              <img src={!this.state.assigned ? UnassignedWhite : UnassignedGray} className='model__assignability-img'/>
               Unassigned
             </button>
           </div>
@@ -97,7 +103,13 @@ class NewShift extends Component {
           <div className='modal__block'>
             <div className='modal__element'>
               <div className='modal__label'>
-                People
+                Repeat - Weeks
+                </div>
+                <input type='number' min={0} className='modal__person-counter' defaultValue={0} />
+            </div>
+            <div>
+              <div className='modal__label'>
+                Employees
                 </div>
                 <input type='number' min={0} className='modal__person-counter' defaultValue={1} />
             </div>

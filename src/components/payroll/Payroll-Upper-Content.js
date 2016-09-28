@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer} from 'recharts';
 
-import PayrollInfo from './Payroll-info'
+import PayrollInfo from './Payroll-Info'
 import payrollData from '../../data/payroll'
 
 

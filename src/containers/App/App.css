@@ -376,7 +376,7 @@
   background: #FAFAFA;
   font-size: 0.8rem;
   padding: 0.7em 0;
-  font-weight: 600;
+  font-weight: 100;
   color: #A7B0B2;
   border: 0.1em solid #A7B0B2;
   outline: none;
@@ -406,6 +406,10 @@
 
 .model__assignability-right {
   border-radius: 0px 4px 4px 0px;
+}
+
+.model__assignability-img {
+  margin-right: 5px;
 }
 
 .modal__input {
