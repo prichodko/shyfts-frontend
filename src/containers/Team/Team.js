@@ -15,6 +15,7 @@ class Team extends Component {
       isNewMemberOpen: false,
       isMemberDetailOpen: false,
       selectedMember: {},
+      role: 'ALL',
     }
 
     this.handleMemberClick = this.handleMemberClick.bind(this)
@@ -59,11 +60,19 @@ class Team extends Component {
     let sortedMembers = {}
 
     sortedTeam.forEach((member) => {
-      const key = member.lastname.charAt(0)
-      if (typeof (sortedMembers[key]) === 'undefined') {
-        sortedMembers[key] = []
+      if ( this.state.role === 'ALL' ) {
+        const key = member.lastname.charAt(0)
+        if (typeof (sortedMembers[key]) === 'undefined') {
+          sortedMembers[key] = []
+        }
+        sortedMembers[key] = [...sortedMembers[key], member]
+      } else if ( member.position === this.state.role) {
+        const key = member.lastname.charAt(0)
+        if (typeof (sortedMembers[key]) === 'undefined') {
+          sortedMembers[key] = []
+        }
+        sortedMembers[key] = [...sortedMembers[key], member]
       }
-      sortedMembers[key] = [...sortedMembers[key], member]
     })
 
     const Team = Object.keys(sortedMembers).map((key) => {
