@@ -54,6 +54,7 @@ class NameForm extends Component {
               type='text'
               placeholder='First Name'
               onChange={this.handleFirstnameChange}
+              autoFocus
               onKeyDown={(event) => {if(event.which === 13 && (this.state.firstname && this.state.lastname)){this.handleEnter()}}} />
             <input
               className='form-fields__input form-fields__input--half-width'

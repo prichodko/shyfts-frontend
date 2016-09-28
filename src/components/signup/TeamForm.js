@@ -42,6 +42,7 @@ class TeamForm extends Component {
             type='text'
             placeholder='Tony’s Café, Legible Inc...'
             onChange={this.handleNameChange}
+            autoFocus
             onKeyDown={(event) => {if(event.which === 13 && this.state.teamname){this.handleEnter()}}} />
         </div>
         <div className='main-footer'>
