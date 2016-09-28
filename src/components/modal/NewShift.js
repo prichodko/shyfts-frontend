@@ -10,8 +10,8 @@ class NewShift extends Component {
     super(props)
 
     this.state = {
-      fromTime: this.props.fromTime || moment(),
-      toTime: this.props.toTime || moment(),
+      start: moment(this.props.start),
+      end: moment(this.props.end),
       assigned: this.props.assigned || false,
       repeat: [
         { id: 'Mon', selected: false },
@@ -41,6 +41,7 @@ class NewShift extends Component {
       }}>{value.id}</button>
     })
 
+    console.log('NEW', this.state)
     return (
       <Modal isOpen={this.props.isOpen}>
         <div className='modal__content'>
@@ -63,13 +64,13 @@ class NewShift extends Component {
               <div className='modal__label'>
                 From
               </div>
-              <TimePicker showSecond={false} defaultValue={this.state.toTime} className='modal__input' />
+              <TimePicker showSecond={false} defaultValue={this.state.start} className='modal__input' />
             </div>
             <div className='modal__item'>
               <div className='modal__label'>
                 To
               </div>
-              <TimePicker showSecond={false} defaultValue={this.state.toTime} className='modal__input' />
+              <TimePicker showSecond={false} defaultValue={this.state.end} className='modal__input' />
             </div>
           </div>
           <div className='modal__label'>Repeat</div>
