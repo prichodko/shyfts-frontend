@@ -77,18 +77,18 @@ class NewShift extends Component {
 
           <div className='modal__block'>
             <button
-              disabled={this.state.assigned}
-              className={this.state.assigned ? 'model__assignability--active model__assignability-left' : 'model__assignability model__assignability-left'}
+              disabled={!this.state.assigned}
+              className={this.state.assigned ? 'model__assignability  model__assignability-left' : 'model__unassignability--active model__assignability-left'}
               onClick={this.handleAssignability}>
-              <img src={this.state.assigned ? AssignedWhite : AssignedGray} className='model__assignability-img'/>
-               Assigned
+              <img src={!this.state.assigned ? UnassignedWhite : UnassignedGray} className='model__assignability-img' />
+              Unassigned
             </button>
             <button
-              disabled={!this.state.assigned}
-              className={this.state.assigned ? 'model__assignability  model__assignability-right' : 'model__assignability--active model__assignability-right'} 
+              disabled={this.state.assigned}
+              className={this.state.assigned ? 'model__assignability--active model__assignability-right' : 'model__assignability model__assignability-right'}
               onClick={this.handleAssignability}>
-              <img src={!this.state.assigned ? UnassignedWhite : UnassignedGray} className='model__assignability-img'/>
-              Unassigned
+              <img src={this.state.assigned ? AssignedWhite : AssignedGray} className='model__assignability-img' />
+               Assigned
             </button>
           </div>
 
