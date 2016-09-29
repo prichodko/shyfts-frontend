@@ -9,6 +9,7 @@ import AssignedWhite from '../../assets/assigned.svg'
 import UnassignedGray from '../../assets/unassigned-gray.svg'
 import AssignedGray from '../../assets/assigned-gray.svg'
 
+import roles from '../../constants/roles'
 import '../../containers/App/App.css'
 
 class NewShift extends Component {
@@ -46,7 +47,8 @@ class NewShift extends Component {
       start: this.state.start,
       end: this.state.end,
       assigned: this.state.assigned,
-      employees: this.state.employees
+      employees: this.state.employees,
+      role: this.props.role
     }
     this.props.onSave(shift)
   }
@@ -61,6 +63,7 @@ class NewShift extends Component {
       return <button key={index} className={value.selected ? 'modal__repeat--active' : 'modal__repeat'} onClick={handleClick}>{value.id}</button>
     })
 
+    const bgColor = roles[this.props.role]
     return (
       <Modal isOpen={this.props.isOpen}>
         <div className='modal__content'>
@@ -70,8 +73,8 @@ class NewShift extends Component {
           </div>
 
           <div className='modal__block'>
-            <div className='modal__group-bubble'>
-              ALL
+            <div className='modal__group-bubble' style={{ backgroundColor: bgColor }}>
+              {this.props.role.toUpperCase()}
             </div>
           </div>
 
@@ -146,7 +149,7 @@ class NewShift extends Component {
             Cancel
           </button>
 
-          <button className='modal__button-save' onClick={this.handleSaveClick}>
+          <button className='modal__button-save' style={{ backgroundColor: bgColor }} onClick={this.handleSaveClick}>
             Save
           </button>
 

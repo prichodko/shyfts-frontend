@@ -539,7 +539,7 @@ button.rbc-input::-moz-focus-inner {
   background-color: #43D375;
   width: 45.5%;
   border-radius: 0;
-  border: 1px solid #3EBF6B;
+  /*border: 1px solid #3EBF6B;*/
   right: 3%;
   padding: 0.3em;
   font-weight: 600;

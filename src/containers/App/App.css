@@ -349,13 +349,15 @@
 }
 
 .modal__group-bubble {
-  background: #3DD281;
+  /*background: #3DD281;*/
   font-size: 0.8rem;
   min-width: 7em;
   border-radius: 3em;
   text-align: center;
+  font-weight: 600;
   color: white;
   margin-bottom: 2rem;
+  padding: 0.15em 1em;
 }
 
 .modal__label {

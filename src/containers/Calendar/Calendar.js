@@ -6,6 +6,7 @@ import ShiftEvent from '../../components/calendar/ShiftEvent'
 import NewShift from '../../components/modal/NewShift'
 import Notification from '../../components/modal/Notification'
 
+import roles from '../../constants/roles'
 import eventsData from '../../data/events'
 
 import './Calendar.css'
@@ -17,7 +18,7 @@ class Calendar extends Component {
     super(props)
 
     this.state = {
-      events: [],
+      events: eventsData,
       isNewShiftOpen: false,
       start: moment(),
       end: moment(),
@@ -40,14 +41,15 @@ class Calendar extends Component {
       start: shift.start.toDate(),
       end: shift.end.toDate(),
       assigned: shift.assigned,
-      people: shift.employees
+      people: shift.employees,
+      role: shift.role
     }
     events.push(newEvent)
     this.setState({ isNewShiftOpen: false, events: events })
 
     setTimeout(() => {
       const events = this.state.events
-      events[0].assigned = true
+      events[events.length - 1].assigned = true
       this.setState({ events: events })
 
       setTimeout(() => {
@@ -66,22 +68,31 @@ class Calendar extends Component {
   }
   
   getVisibleEvents () {
+    const { role } = this.props
+    const events = this.state.events
 
+    switch (role) {
+      case 'All': return events
+      default: return events.filter(e => e.role === role)
+    }
   }
 
   render () {
+    const { role } = this.props
+    const events = this.getVisibleEvents()
+
     return (
       <div className='calendar-wrapper'>
         <BigCalendar
-          events={this.state.events}
+          events={events}
           selectable
           defaultView={'week'}
           views={['week']}
-          eventPropGetter={(event) => ({ className: event.assigned ? 'rbc-event-assigned' : 'rbc-event-unassigned' })}
+          eventPropGetter={(event) => ({ className: event.assigned ? 'rbc-event-assigned' : 'rbc-event-unassigned', style: { backgroundColor: event.assigned && roles[role] }})}
           onSelectSlot={this.handleSelectSlot}
           components={{ event: ShiftEvent }}
         />
-        {this.state.isNewShiftOpen && <NewShift isOpen onSave={this.handleSave} onCancel={this.handleCancel} start={this.state.start} end={this.state.end} />}
+        {this.state.isNewShiftOpen && <NewShift isOpen onSave={this.handleSave} onCancel={this.handleCancel} role={role} start={this.state.start} end={this.state.end} />}
         {this.state.notify && <Notification name='Pavel Prichodko' message='has applied for the shift' color='#43D375' />}
 
       </div>

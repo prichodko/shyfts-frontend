@@ -43,7 +43,7 @@ class Navbar extends Component {
           <div className='navbar__teamname'>
             {team}
           </div>
-          <span className='navbar__group-bubble' style={{backgroundColor: bgColor}} >{role}</span>
+          <span className='navbar__group-bubble' style={{backgroundColor: bgColor}} >{role.toUpperCase()}</span>
         </div>
         <div className='navbar__list'>
           <Link to='/app' className='navbar__link' activeStyle={{borderBottom: '0.2em solid ' + bgColor, fontWeight: '600'}} onlyActiveOnIndex> Shifts
@@ -56,7 +56,7 @@ class Navbar extends Component {
         <button className='navbar__add-button' onClick={this.handleNewShiftClick} style={{backgroundColor: bgColor}}>
           <img src={Plus} role='presentation' />
         </button>
-        {this.state.isNewShiftOpen && <NewShift isOpen onCancel={this.handleCancel} onSave={this.handleSave} />}
+        {this.state.isNewShiftOpen && <NewShift isOpen onCancel={this.handleCancel} onSave={this.handleSave} role={role} />}
       </div>
     )
   }
