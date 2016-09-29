@@ -1,0 +1,16 @@
+<svg width="13px" viewBox="308 206 14 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M314.100668,206.083659 C314.100668,206.083659 314,205 315.050334,205 C316.100668,205 316.100668,206.083659 316.100668,206.083659 L316.000048,219.180641 C316.000048,219.180641 316.100668,220.123013 315.038058,220.123013 C313.975448,220.123013 314.000048,219.180641 314.000048,219.180641 L314.100668,206.083659 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="2.10066782" height="15.1230128" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M314.100668,206.083659 C314.100668,206.083659 314,205 315.050334,205 C316.100668,205 316.100668,206.083659 316.100668,206.083659 L316.000048,219.180641 C316.000048,219.180641 316.100668,220.123013 315.038058,220.123013 C313.975448,220.123013 314.000048,219.180641 314.000048,219.180641 L314.100668,206.083659 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="2.10066782" height="15.1230128" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <use id="Rectangle" stroke="#6F7D80" mask="url(#mask-2)" stroke-width="2" fill="#6F7D80" fill-rule="evenodd" transform="translate(315.050334, 212.561506) rotate(-45.000000) translate(-315.050334, -212.561506) " xlink:href="#path-1"></use>
+    <use id="Rectangle" stroke="#6F7D80" mask="url(#mask-4)" stroke-width="2" fill="#6F7D80" fill-rule="evenodd" transform="translate(315.050334, 212.561506) rotate(45.000000) translate(-315.050334, -212.561506) " xlink:href="#path-3"></use>
+</svg>

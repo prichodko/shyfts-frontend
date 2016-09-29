@@ -31,9 +31,10 @@ class ShiftDetail extends Component {
         { id: 'Sat', selected: false },
         { id: 'Sun', selected: false }
       ],
-      employees: 1
+      employees: 1,
+      assigned: team
     }
-
+    this.handleRemoveEmployee = this.handleRemoveEmployee.bind(this)
     this.handleSaveClick = this.handleSaveClick.bind(this)
   }
 
@@ -46,6 +47,10 @@ class ShiftDetail extends Component {
       employees: this.state.employees
     }
     this.props.onSave(shift)
+  }
+
+  handleRemoveEmployee () {
+    console.log('FUCKED')
   }
 
   render () {
@@ -66,14 +71,12 @@ class ShiftDetail extends Component {
     sortedMessengers = sortedMessengers.slice(0,2)
 
     const shiftChefs = sortedChefs.map((chef, index) => {
-      return <Employee firstname={chef.firstname} lastname={chef.lastname} color={chef.color} key={index}/>
+      return <Employee firstname={chef.firstname} lastname={chef.lastname} color={chef.color} key={index} onRemoveEmployee={this.handleRemoveEmployee}/>
     })
 
     const shiftMessengers = sortedMessengers.map((messenger, index) => {
       return <Employee firstname={messenger.firstname} lastname={messenger.lastname} color={messenger.color} key={index}/>
     })
-
-    console.log(sortedChefs, sortedMessengers);
 
     const repeatingDays = this.state.repeat.map((value, index) => {
       const handleClick = () => {

@@ -508,7 +508,43 @@
   text-align: right;
 }
 
-.shiftDetail__employee {
+.shift-detail__employee {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.shift-detail__avatar {
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: 0.5rem 0.5rem 0 0;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shift-detail__name {
+  color: #6F7D80;
+  font-size: 0.9rem;
+  margin: 0.5rem 0.5rem 0 0;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shift-detail__remove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.shift-detail__remove:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }
