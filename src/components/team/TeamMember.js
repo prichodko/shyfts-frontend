@@ -18,7 +18,7 @@ const TeamMember = ({ data, onMemberSelect, index }) => {
           {name}
         </div>
         <span className='team-member__position' style={{ background: color }}>
-          {position}
+          {position.toUpperCase()}
         </span>
         <div className='team-member__info-wrapper'>
           <Info label='Scheduled Hours' data={scheduledHours} />
