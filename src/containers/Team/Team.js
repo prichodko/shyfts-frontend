@@ -14,8 +14,7 @@ class Team extends Component {
       team: teamData,
       isNewMemberOpen: false,
       isMemberDetailOpen: false,
-      selectedMember: {},
-      role: 'ALL',
+      selectedMember: {}
     }
 
     this.handleMemberClick = this.handleMemberClick.bind(this)
@@ -26,14 +25,14 @@ class Team extends Component {
   handleMemberClick (member, index) {
     this.setState({
       isMemberDetailOpen: true,
-      selectedMember: member,
+      selectedMember: member
     })
   }
 
   handleCancel (event) {
     event.preventDefault()
     this.setState({
-      isMemberDetailOpen : false,
+      isMemberDetailOpen: false,
       selectedMember: {}
     })
   }
@@ -47,7 +46,7 @@ class Team extends Component {
     })
 
     this.setState({
-      isMemberDetailOpen : false,
+      isMemberDetailOpen: false,
       selectedMember: {},
       team: team
     })
@@ -60,13 +59,13 @@ class Team extends Component {
     let sortedMembers = {}
 
     sortedTeam.forEach((member) => {
-      if ( this.state.role === 'ALL' ) {
+      if ( this.props.role === 'All' ) {
         const key = member.lastname.charAt(0)
         if (typeof (sortedMembers[key]) === 'undefined') {
           sortedMembers[key] = []
         }
         sortedMembers[key] = [...sortedMembers[key], member]
-      } else if ( member.position === this.state.role) {
+      } else if ( member.position === this.props.role) {
         const key = member.lastname.charAt(0)
         if (typeof (sortedMembers[key]) === 'undefined') {
           sortedMembers[key] = []
@@ -90,6 +89,8 @@ class Team extends Component {
         </div>
       )
     })
+
+    console.log(this.state)
 
     return (
       <div className='team'>

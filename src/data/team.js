@@ -2,7 +2,7 @@ const team = [
   {
     firstname: 'Mathew',
     lastname: 'Gomez',
-    position: 'MESSENGERS',
+    position: 'Messengers',
     color: '#FEE000',
     scheduledHours: 18,
     hourlyRate: 180,
@@ -15,7 +15,7 @@ const team = [
   {
     firstname: 'Annie',
     lastname: 'Brodeaur',
-    position: 'MESSENGERS',
+    position: 'Messengers',
     color: '#FEE000',
     scheduledHours: 140,
     hourlyRate: 180,
@@ -28,7 +28,7 @@ const team = [
   {
     firstname: 'Nellie',
     lastname: 'Audemire',
-    position: 'CHEFS',
+    position: 'Chefs',
     color: '#E63657',
     scheduledHours: 43,
     hourlyRate: 250,
@@ -41,7 +41,7 @@ const team = [
   {
     firstname: 'Gordon',
     lastname: 'Dixon',
-    position: 'CHEFS',
+    position: 'Chefs',
     color: '#E63657',
     scheduledHours: 43,
     hourlyRate: 250,
@@ -54,7 +54,7 @@ const team = [
    {
     firstname: 'Johnny',
     lastname: 'Gordon',
-    position: 'MESSENGERS',
+    position: 'Messengers',
     color: '#FEE000',
     scheduledHours: 200,
     hourlyRate: 180,
@@ -67,7 +67,7 @@ const team = [
    {
    firstname: 'Jerome',
    lastname: 'Gutierez',
-   position: 'MESSENGERS',
+   position: 'Messengers',
    color: '#FEE000',
    scheduledHours: 140,
    hourlyRate: 180,
@@ -80,7 +80,7 @@ const team = [
   {
     firstname: 'Albert',
     lastname: 'Baxton',
-    position: 'MESSENGERS',
+    position: 'Messengers',
     color: '#FEE000',
     scheduledHours: 12,
     hourlyRate: 180,
@@ -93,7 +93,7 @@ const team = [
   {
     firstname: 'Glenn',
     lastname: 'Anderson',
-    position: 'CHEFS',
+    position: 'Chefs',
     color: '#E63657',
     scheduledHours: 120,
     hourlyRate: 250,
@@ -106,7 +106,7 @@ const team = [
   {
     firstname: 'Lucas',
     lastname: 'McCormick',
-    position: 'MESSENGERS',
+    position: 'Messengers',
     color: '#FEE000',
     scheduledHours: 120,
     hourlyRate: 180,
@@ -119,7 +119,7 @@ const team = [
   {
     firstname: 'Manuel',
     lastname: 'McDonald',
-    position: 'CHEFS',
+    position: 'Chefs',
     color: '#E63657',
     scheduledHours: 400,
     hourlyRate: 250,

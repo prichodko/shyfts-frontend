@@ -1,5 +1,5 @@
 export default {
-  teamname: 'Order Team Prague',
+  teamname: 'Ballerz',
   firstname: 'Jakub',
-  lastname: 'Plas'
+  lastname: 'Nespor'
 }
