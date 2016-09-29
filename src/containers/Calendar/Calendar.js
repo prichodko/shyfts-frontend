@@ -4,6 +4,7 @@ import moment from 'moment'
 import BigCalendar from '../../components/calendar'
 import ShiftEvent from '../../components/calendar/ShiftEvent'
 import NewShift from '../../components/modal/NewShift'
+import Notification from '../../components/modal/Notification'
 
 import eventsData from '../../data/events'
 
@@ -16,10 +17,11 @@ class Calendar extends Component {
     super(props)
 
     this.state = {
-      events: eventsData,
+      events: [],
       isNewShiftOpen: false,
       start: moment(),
-      end: moment()
+      end: moment(),
+      notify: false
     }
 
     this.handleSelectSlot = this.handleSelectSlot.bind(this)
@@ -40,18 +42,31 @@ class Calendar extends Component {
       assigned: shift.assigned,
       people: shift.employees
     }
-
     events.push(newEvent)
-
-    console.log('NEW EVENT', newEvent)
-    console.log('OLD EVENTS', events)
-
     this.setState({ isNewShiftOpen: false, events: events })
+
+    setTimeout(() => {
+      const events = this.state.events
+      events[0].assigned = true
+      this.setState({ events: events })
+
+      setTimeout(() => {
+        this.setState({ notify: true })
+      }, 400)
+
+      setTimeout(() => {
+        this.setState({ notify: false })
+      }, 4000)
+    }, 5000)
   }
 
   handleCancel (e) {
     e.preventDefault()
     this.setState({ isNewShiftOpen: false })
+  }
+  
+  getVisibleEvents () {
+
   }
 
   render () {
@@ -67,6 +82,8 @@ class Calendar extends Component {
           components={{ event: ShiftEvent }}
         />
         {this.state.isNewShiftOpen && <NewShift isOpen onSave={this.handleSave} onCancel={this.handleCancel} start={this.state.start} end={this.state.end} />}
+        {this.state.notify && <Notification name='Pavel Prichodko' message='has applied for the shift' color='#43D375' />}
+
       </div>
     )
   }
