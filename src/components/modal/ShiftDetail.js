@@ -21,7 +21,6 @@ class ShiftDetail extends Component {
     this.state = {
       start: moment(this.props.start),
       end: moment(this.props.end),
-      assigned: this.props.assigned || false,
       repeat: [
         { id: 'Mon', selected: true },
         { id: 'Tue', selected: false },
@@ -52,7 +51,7 @@ class ShiftDetail extends Component {
   handleRemoveEmployee (id) {
     this.state.assigned.forEach((member) => {
       if (member.id === id) {
-        this.state.assigned.splice(this.state.assigned.indexOf(member),1)
+        this.state.assigned.splice(this.state.assigned.indexOf(member), 1)
         this.setState({assigned: this.state.assigned})
       }
     })
@@ -73,11 +72,11 @@ class ShiftDetail extends Component {
     })
 
     const shiftChefs = sortedChefs.map((chef, index) => {
-      return <Employee firstname={chef.firstname} lastname={chef.lastname} id={chef.id} color={chef.color} key={index} onRemoveEmployee={this.handleRemoveEmployee}/>
+      return <Employee firstname={chef.firstname} lastname={chef.lastname} id={chef.id} color={chef.color} key={index} onRemoveEmployee={this.handleRemoveEmployee} />
     })
 
     const shiftMessengers = sortedMessengers.map((messenger, index) => {
-      return <Employee firstname={messenger.firstname} lastname={messenger.lastname} id={messenger.id} color={messenger.color} key={index} onRemoveEmployee={this.handleRemoveEmployee}/>
+      return <Employee firstname={messenger.firstname} lastname={messenger.lastname} id={messenger.id} color={messenger.color} key={index} onRemoveEmployee={this.handleRemoveEmployee} />
     })
 
     const repeatingDays = this.state.repeat.map((value, index) => {
@@ -132,16 +131,11 @@ class ShiftDetail extends Component {
 
           <div className='modal__block'>
             <div className='modal__element'>
-            <div className='payroll__group-bubble' style={{ background: sortedChefs[0].color }}>
-              CHEFS
-            </div>
-              {shiftChefs}
-            </div>
-            <div className='modal__element'>
-            <div className='payroll__group-bubble' style={{ background: sortedMessengers[0].color }}>
-              MESSENGERS
-            </div>
-              {shiftMessengers}
+              <div className='modal__label'>Assigned</div>
+              <div className='payroll__group-bubble' style={{ background: sortedChefs[0].color }}>
+                CHEFS
+              </div>
+              <Employee firstname='Pavel' lastname='Prichodko' color={sortedChefs[0].color} />
             </div>
           </div>
 

@@ -19,18 +19,23 @@ class Calendar extends Component {
     this.state = {
       events: eventsData,
       isNewShiftOpen: false,
-      isShiftDetailOpen: true,
+      isShiftDetailOpen: false,
       start: moment(),
       end: moment()
     }
 
     this.handleSelectSlot = this.handleSelectSlot.bind(this)
+    this.handleSelectEvent = this.handleSelectEvent.bind(this)
     this.handleSave = this.handleSave.bind(this)
     this.handleCancel = this.handleCancel.bind(this)
   }
 
   handleSelectSlot ({start, end}) {
     this.setState({ isNewShiftOpen: true, start: start, end: end })
+  }
+
+  handleSelectEvent ({start, end}) {
+    this.setState({ isShiftDetailOpen: true, start: start, end: end })    
   }
 
   handleSave (shift) {
@@ -53,7 +58,7 @@ class Calendar extends Component {
 
   handleCancel (e) {
     e.preventDefault()
-    this.setState({ isNewShiftOpen: false })
+    this.setState({ isNewShiftOpen: false, isShiftDetailOpen: false })
   }
 
   render () {
@@ -65,11 +70,12 @@ class Calendar extends Component {
           defaultView={'week'}
           views={['week']}
           eventPropGetter={(event) => ({ className: event.assigned ? 'rbc-event-assigned' : 'rbc-event-unassigned' })}
+          onSelectEvent={this.handleSelectEvent}
           onSelectSlot={this.handleSelectSlot}
           components={{ event: ShiftEvent }}
         />
         {this.state.isNewShiftOpen && <NewShift isOpen onSave={this.handleSave} onCancel={this.handleCancel} start={this.state.start} end={this.state.end} />}
-        {this.state.isShiftDetailOpen && <ShiftDetail isOpen  />}
+        {this.state.isShiftDetailOpen && <ShiftDetail isOpen onCancel={this.handleCancel} start={this.state.start} end={this.state.end} />}
       </div>
     )
   }
