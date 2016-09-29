@@ -1,9 +1,9 @@
 import React from 'react'
 
-const GroupItem = (props) => {
+const GroupItem = ({ color, onClick, children }) => {
   return (
-    <li className='group-list__item' style={{ borderLeft: '3px solid ' + props.color }} onClick={() => console.log('FUCKED')}>
-      {props.children}
+    <li className='group-list__item' style={{ borderLeft: '3px solid ' + color }} onClick={onClick} >
+      {children}
     </li>
   )
 }

@@ -4,6 +4,7 @@ import profileData from '../../data/profile'
 
 import NewShift from '../modal/NewShift'
 import Plus from '../../assets/plus.svg'
+import roles from '../../constants/roles'
 
 class Navbar extends Component {
   constructor (props) {
@@ -34,23 +35,25 @@ class Navbar extends Component {
 
   render () {
     const team = profileData.teamname
+    const { role } = this.props
+    const bgColor = roles[role]
     return (
       <div className='navbar'>
         <div className='navbar__info'>
           <div className='navbar__teamname'>
             {team}
           </div>
-          <span className='navbar__group-bubble'>ALL</span>
+          <span className='navbar__group-bubble' style={{backgroundColor: bgColor}} >{role}</span>
         </div>
         <div className='navbar__list'>
-          <Link to='/app' className='navbar__link' activeClassName='navbar__link--active' onlyActiveOnIndex> Shifts
+          <Link to='/app' className='navbar__link' activeStyle={{borderBottom: '0.2em solid ' + bgColor, fontWeight: '600'}} onlyActiveOnIndex> Shifts
           </Link>
-          <Link to='/app/team' className='navbar__link' activeClassName='navbar__link--active'> Team
+          <Link to='/app/team' className='navbar__link' activeStyle={{borderBottom: '0.2em solid ' + bgColor, fontWeight: '600'}}> Team
           </Link>
-          <Link to='/app/payroll' className='navbar__link' activeClassName='navbar__link--active'> Payroll
+          <Link to='/app/payroll' className='navbar__link' activeStyle={{borderBottom: '0.2em solid ' + bgColor, fontWeight: '600'}}> Payroll
           </Link>
         </div>
-        <button className='navbar__add-button' onClick={this.handleNewShiftClick}>
+        <button className='navbar__add-button' onClick={this.handleNewShiftClick} style={{backgroundColor: bgColor}}>
           <img src={Plus} role='presentation' />
         </button>
         {this.state.isNewShiftOpen && <NewShift isOpen onCancel={this.handleCancel} onSave={this.handleSave} />}

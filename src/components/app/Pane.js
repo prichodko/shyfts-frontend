@@ -14,8 +14,8 @@ class Pane extends Component {
           <img src={Logo} alt='' />
         </div>
         <AddGroup />
-        <GroupList />
-        <Profile data={this.props.data}/>
+        <GroupList onRoleChange={this.props.onRoleChange} />
+        <Profile data={this.props.data} />
       </div>
     )
   }
