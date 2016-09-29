@@ -10,7 +10,7 @@ import UnassignedGray from '../../assets/unassigned-gray.svg'
 import AssignedGray from '../../assets/assigned-gray.svg'
 import Employee from './ShiftDetail-Employee'
 
-import team from '../../data/team'
+import team from '../../data/assigned'
 
 import '../../containers/App/App.css'
 
@@ -49,13 +49,18 @@ class ShiftDetail extends Component {
     this.props.onSave(shift)
   }
 
-  handleRemoveEmployee () {
-    console.log('FUCKED')
+  handleRemoveEmployee (id) {
+    this.state.assigned.forEach((member) => {
+      if (member.id === id) {
+        this.state.assigned.splice(this.state.assigned.indexOf(member),1)
+        this.setState({assigned: this.state.assigned})
+      }
+    })
   }
 
   render () {
 
-    const sortedTeam = team.sort((a, b) => a.lastname.localeCompare(b.lastname))
+    const sortedTeam = this.state.assigned.sort((a, b) => a.lastname.localeCompare(b.lastname))
     let sortedChefs = []
     let sortedMessengers = []
 
@@ -67,15 +72,12 @@ class ShiftDetail extends Component {
       }
     })
 
-    sortedChefs = sortedChefs.slice(0,2)
-    sortedMessengers = sortedMessengers.slice(0,2)
-
     const shiftChefs = sortedChefs.map((chef, index) => {
-      return <Employee firstname={chef.firstname} lastname={chef.lastname} color={chef.color} key={index} onRemoveEmployee={this.handleRemoveEmployee}/>
+      return <Employee firstname={chef.firstname} lastname={chef.lastname} id={chef.id} color={chef.color} key={index} onRemoveEmployee={this.handleRemoveEmployee}/>
     })
 
     const shiftMessengers = sortedMessengers.map((messenger, index) => {
-      return <Employee firstname={messenger.firstname} lastname={messenger.lastname} color={messenger.color} key={index}/>
+      return <Employee firstname={messenger.firstname} lastname={messenger.lastname} id={messenger.id} color={messenger.color} key={index} onRemoveEmployee={this.handleRemoveEmployee}/>
     })
 
     const repeatingDays = this.state.repeat.map((value, index) => {
